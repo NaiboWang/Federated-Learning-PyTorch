@@ -18,7 +18,8 @@ from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar
 if __name__ == '__main__':
     args = args_parser()
     if args.gpu:
-        torch.cuda.set_device(args.gpu)
+        torch.cuda.set_device(int(args.gpu))
+        print("using GPU")
     device = 'cuda' if args.gpu else 'cpu'
 
     # load datasets
