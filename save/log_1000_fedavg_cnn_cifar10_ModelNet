@@ -1,0 +1,4660 @@
+ssh://naibo@172.27.143.140:22/home/naibo/miniconda3/envs/torchFed/bin/python -u /home/naibo/Federated-Learning-PyTorch/src/federated_main.py --model=cnn --dataset=cifar --iid=1 --epochs=1000 --optimizer=adam --gpu=1
+
+Experimental details:
+    Model     : cnn
+    Optimizer : adam
+    Learning  : 0.001
+    Global Rounds   : 1000
+
+    Federated parameters:
+    IID
+    Fraction of users  : 0.1
+    Local Batch size   : 50
+    Local Epochs       : 5
+
+args.gpu 1
+test
+Files already downloaded and verified
+Files already downloaded and verified
+ModerateCNN(
+  (conv_layer): Sequential(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (3): ReLU(inplace=True)
+    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (6): ReLU(inplace=True)
+    (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (8): ReLU(inplace=True)
+    (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (10): Dropout2d(p=0.05, inplace=False)
+    (11): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (12): ReLU(inplace=True)
+    (13): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (14): ReLU(inplace=True)
+    (15): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (fc_layer): Sequential(
+    (0): Dropout(p=0.1, inplace=False)
+    (1): Linear(in_features=4096, out_features=512, bias=True)
+    (2): ReLU(inplace=True)
+    (3): Linear(in_features=512, out_features=512, bias=True)
+    (4): ReLU(inplace=True)
+    (5): Dropout(p=0.1, inplace=False)
+    (6): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+  0%|                                                  | 0/1000 [00:00<?, ?it/s]
+ | Global Training Round : 1 |
+
+/home/naibo/Federated-Learning-PyTorch/src/update.py:23: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  return torch.tensor(image), torch.tensor(label)
+  0%|                                        | 1/1000 [00:08<2:16:50,  8.22s/it]
+ | Global Training Round : 2 |
+
+  0%|                                        | 2/1000 [00:15<2:11:41,  7.92s/it]
+ | Global Training Round : 3 |
+
+  0%|                                        | 3/1000 [00:22<2:07:50,  7.69s/it]
+ | Global Training Round : 4 |
+
+  0%|▏                                       | 4/1000 [00:29<2:05:11,  7.54s/it]
+ | Global Training Round : 5 |
+
+
+Avg Training Stats after 5 global rounds:
+Train Accuracy: 34.00%
+
+test accuracy: 0.29314 after 5 epochs
+
+test accuracy: 0.2883 after 5 epochs
+
+  0%|▏                                       | 5/1000 [00:45<2:47:38, 10.11s/it]
+ | Global Training Round : 6 |
+
+  1%|▏                                       | 6/1000 [00:53<2:32:58,  9.23s/it]
+ | Global Training Round : 7 |
+
+  1%|▎                                       | 7/1000 [01:00<2:22:36,  8.62s/it]
+ | Global Training Round : 8 |
+
+  1%|▎                                       | 8/1000 [01:07<2:15:17,  8.18s/it]
+ | Global Training Round : 9 |
+
+  1%|▎                                       | 9/1000 [01:14<2:10:08,  7.88s/it]
+ | Global Training Round : 10 |
+
+
+Avg Training Stats after 10 global rounds:
+Train Accuracy: 44.00%
+
+test accuracy: 0.37998 after 10 epochs
+
+test accuracy: 0.3826 after 10 epochs
+
+  1%|▍                                      | 10/1000 [01:31<2:56:03, 10.67s/it]
+ | Global Training Round : 11 |
+
+  1%|▍                                      | 11/1000 [01:39<2:38:50,  9.64s/it]
+ | Global Training Round : 12 |
+
+  1%|▍                                      | 12/1000 [01:46<2:26:19,  8.89s/it]
+ | Global Training Round : 13 |
+
+  1%|▌                                      | 13/1000 [01:53<2:17:32,  8.36s/it]
+ | Global Training Round : 14 |
+
+  1%|▌                                      | 14/1000 [02:00<2:10:46,  7.96s/it]
+ | Global Training Round : 15 |
+
+
+Avg Training Stats after 15 global rounds:
+Train Accuracy: 44.00%
+
+test accuracy: 0.44304 after 15 epochs
+
+test accuracy: 0.4379 after 15 epochs
+
+  2%|▌                                      | 15/1000 [02:15<2:48:44, 10.28s/it]
+ | Global Training Round : 16 |
+
+  2%|▌                                      | 16/1000 [02:23<2:32:37,  9.31s/it]
+ | Global Training Round : 17 |
+
+  2%|▋                                      | 17/1000 [02:30<2:21:11,  8.62s/it]
+ | Global Training Round : 18 |
+
+  2%|▋                                      | 18/1000 [02:37<2:13:09,  8.14s/it]
+ | Global Training Round : 19 |
+
+  2%|▋                                      | 19/1000 [02:44<2:07:31,  7.80s/it]
+ | Global Training Round : 20 |
+
+
+Avg Training Stats after 20 global rounds:
+Train Accuracy: 36.00%
+
+test accuracy: 0.49352 after 20 epochs
+
+test accuracy: 0.4917 after 20 epochs
+
+  2%|▊                                      | 20/1000 [02:59<2:46:08, 10.17s/it]
+ | Global Training Round : 21 |
+
+  2%|▊                                      | 21/1000 [03:06<2:30:36,  9.23s/it]
+ | Global Training Round : 22 |
+
+  2%|▊                                      | 22/1000 [03:13<2:19:40,  8.57s/it]
+ | Global Training Round : 23 |
+
+  2%|▉                                      | 23/1000 [03:20<2:11:57,  8.10s/it]
+ | Global Training Round : 24 |
+
+  2%|▉                                      | 24/1000 [03:27<2:06:32,  7.78s/it]
+ | Global Training Round : 25 |
+
+
+Avg Training Stats after 25 global rounds:
+Train Accuracy: 48.00%
+
+test accuracy: 0.53048 after 25 epochs
+
+test accuracy: 0.5197 after 25 epochs
+
+  2%|▉                                      | 25/1000 [03:43<2:45:03, 10.16s/it]
+ | Global Training Round : 26 |
+
+  3%|█                                      | 26/1000 [03:50<2:29:37,  9.22s/it]
+ | Global Training Round : 27 |
+
+  3%|█                                      | 27/1000 [03:57<2:18:46,  8.56s/it]
+ | Global Training Round : 28 |
+
+  3%|█                                      | 28/1000 [04:04<2:11:06,  8.09s/it]
+ | Global Training Round : 29 |
+
+  3%|█▏                                     | 29/1000 [04:11<2:05:44,  7.77s/it]
+ | Global Training Round : 30 |
+
+
+Avg Training Stats after 30 global rounds:
+Train Accuracy: 56.00%
+
+test accuracy: 0.55906 after 30 epochs
+
+test accuracy: 0.5423 after 30 epochs
+
+  3%|█▏                                     | 30/1000 [04:27<2:44:01, 10.15s/it]
+ | Global Training Round : 31 |
+
+  3%|█▏                                     | 31/1000 [04:34<2:28:48,  9.21s/it]
+ | Global Training Round : 32 |
+
+  3%|█▏                                     | 32/1000 [04:41<2:18:01,  8.56s/it]
+ | Global Training Round : 33 |
+
+  3%|█▎                                     | 33/1000 [04:48<2:10:28,  8.10s/it]
+ | Global Training Round : 34 |
+
+  3%|█▎                                     | 34/1000 [04:55<2:05:08,  7.77s/it]
+ | Global Training Round : 35 |
+
+
+Avg Training Stats after 35 global rounds:
+Train Accuracy: 54.00%
+
+test accuracy: 0.58668 after 35 epochs
+
+test accuracy: 0.565 after 35 epochs
+
+  4%|█▎                                     | 35/1000 [05:14<3:00:06, 11.20s/it]
+ | Global Training Round : 36 |
+
+  4%|█▍                                     | 36/1000 [05:21<2:41:22, 10.04s/it]
+ | Global Training Round : 37 |
+
+  4%|█▍                                     | 37/1000 [05:28<2:26:38,  9.14s/it]
+ | Global Training Round : 38 |
+
+  4%|█▍                                     | 38/1000 [05:36<2:16:19,  8.50s/it]
+ | Global Training Round : 39 |
+
+  4%|█▌                                     | 39/1000 [05:43<2:09:01,  8.06s/it]
+ | Global Training Round : 40 |
+
+
+Avg Training Stats after 40 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.60528 after 40 epochs
+
+test accuracy: 0.583 after 40 epochs
+
+  4%|█▌                                     | 40/1000 [05:58<2:45:42, 10.36s/it]
+ | Global Training Round : 41 |
+
+  4%|█▌                                     | 41/1000 [06:05<2:29:36,  9.36s/it]
+ | Global Training Round : 42 |
+
+  4%|█▋                                     | 42/1000 [06:12<2:18:11,  8.66s/it]
+ | Global Training Round : 43 |
+
+  4%|█▋                                     | 43/1000 [06:19<2:10:15,  8.17s/it]
+ | Global Training Round : 44 |
+
+  4%|█▋                                     | 44/1000 [06:26<2:04:36,  7.82s/it]
+ | Global Training Round : 45 |
+
+
+Avg Training Stats after 45 global rounds:
+Train Accuracy: 50.00%
+
+test accuracy: 0.6315 after 45 epochs
+
+test accuracy: 0.607 after 45 epochs
+
+  4%|█▊                                     | 45/1000 [06:42<2:42:16, 10.20s/it]
+ | Global Training Round : 46 |
+
+  5%|█▊                                     | 46/1000 [06:49<2:27:01,  9.25s/it]
+ | Global Training Round : 47 |
+
+  5%|█▊                                     | 47/1000 [06:56<2:16:15,  8.58s/it]
+ | Global Training Round : 48 |
+
+  5%|█▊                                     | 48/1000 [07:03<2:08:42,  8.11s/it]
+ | Global Training Round : 49 |
+
+  5%|█▉                                     | 49/1000 [07:10<2:03:25,  7.79s/it]
+ | Global Training Round : 50 |
+
+
+Avg Training Stats after 50 global rounds:
+Train Accuracy: 66.00%
+
+test accuracy: 0.65204 after 50 epochs
+
+test accuracy: 0.619 after 50 epochs
+
+  5%|█▉                                     | 50/1000 [07:26<2:41:00, 10.17s/it]
+ | Global Training Round : 51 |
+
+  5%|█▉                                     | 51/1000 [07:33<2:26:01,  9.23s/it]
+ | Global Training Round : 52 |
+
+  5%|██                                     | 52/1000 [07:40<2:15:24,  8.57s/it]
+ | Global Training Round : 53 |
+
+  5%|██                                     | 53/1000 [07:47<2:07:58,  8.11s/it]
+ | Global Training Round : 54 |
+
+  5%|██                                     | 54/1000 [07:54<2:02:45,  7.79s/it]
+ | Global Training Round : 55 |
+
+
+Avg Training Stats after 55 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.66772 after 55 epochs
+
+test accuracy: 0.6323 after 55 epochs
+
+  6%|██▏                                    | 55/1000 [08:10<2:40:00, 10.16s/it]
+ | Global Training Round : 56 |
+
+  6%|██▏                                    | 56/1000 [08:17<2:25:04,  9.22s/it]
+ | Global Training Round : 57 |
+
+  6%|██▏                                    | 57/1000 [08:24<2:14:31,  8.56s/it]
+ | Global Training Round : 58 |
+
+  6%|██▎                                    | 58/1000 [08:31<2:07:09,  8.10s/it]
+ | Global Training Round : 59 |
+
+  6%|██▎                                    | 59/1000 [08:38<2:01:59,  7.78s/it]
+ | Global Training Round : 60 |
+
+
+Avg Training Stats after 60 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.68264 after 60 epochs
+
+test accuracy: 0.6391 after 60 epochs
+
+  6%|██▎                                    | 60/1000 [08:57<2:53:00, 11.04s/it]
+ | Global Training Round : 61 |
+
+  6%|██▍                                    | 61/1000 [09:04<2:37:05, 10.04s/it]
+ | Global Training Round : 62 |
+
+  6%|██▍                                    | 62/1000 [09:11<2:23:28,  9.18s/it]
+ | Global Training Round : 63 |
+
+  6%|██▍                                    | 63/1000 [09:18<2:13:41,  8.56s/it]
+ | Global Training Round : 64 |
+
+  6%|██▍                                    | 64/1000 [09:26<2:06:42,  8.12s/it]
+ | Global Training Round : 65 |
+
+
+Avg Training Stats after 65 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.69772 after 65 epochs
+
+test accuracy: 0.6605 after 65 epochs
+
+  6%|██▌                                    | 65/1000 [09:42<2:43:05, 10.47s/it]
+ | Global Training Round : 66 |
+
+  7%|██▌                                    | 66/1000 [09:49<2:27:17,  9.46s/it]
+ | Global Training Round : 67 |
+
+  7%|██▌                                    | 67/1000 [09:56<2:16:08,  8.75s/it]
+ | Global Training Round : 68 |
+
+  7%|██▋                                    | 68/1000 [10:03<2:08:18,  8.26s/it]
+ | Global Training Round : 69 |
+
+  7%|██▋                                    | 69/1000 [10:10<2:02:51,  7.92s/it]
+ | Global Training Round : 70 |
+
+
+Avg Training Stats after 70 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.7125 after 70 epochs
+
+test accuracy: 0.6656 after 70 epochs
+
+  7%|██▋                                    | 70/1000 [10:26<2:40:08, 10.33s/it]
+ | Global Training Round : 71 |
+
+  7%|██▊                                    | 71/1000 [10:33<2:25:04,  9.37s/it]
+ | Global Training Round : 72 |
+
+  7%|██▊                                    | 72/1000 [10:40<2:14:26,  8.69s/it]
+ | Global Training Round : 73 |
+
+  7%|██▊                                    | 73/1000 [10:47<2:06:40,  8.20s/it]
+ | Global Training Round : 74 |
+
+  7%|██▉                                    | 74/1000 [10:54<2:01:06,  7.85s/it]
+ | Global Training Round : 75 |
+
+
+Avg Training Stats after 75 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.72244 after 75 epochs
+
+test accuracy: 0.6774 after 75 epochs
+
+  8%|██▉                                    | 75/1000 [11:10<2:37:28, 10.22s/it]
+ | Global Training Round : 76 |
+
+  8%|██▉                                    | 76/1000 [11:17<2:22:45,  9.27s/it]
+ | Global Training Round : 77 |
+
+  8%|███                                    | 77/1000 [11:24<2:12:15,  8.60s/it]
+ | Global Training Round : 78 |
+
+  8%|███                                    | 78/1000 [11:31<2:04:52,  8.13s/it]
+ | Global Training Round : 79 |
+
+  8%|███                                    | 79/1000 [11:38<1:59:39,  7.80s/it]
+ | Global Training Round : 80 |
+
+
+Avg Training Stats after 80 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.73234 after 80 epochs
+
+test accuracy: 0.6797 after 80 epochs
+
+  8%|███                                    | 80/1000 [11:54<2:36:03, 10.18s/it]
+ | Global Training Round : 81 |
+
+  8%|███▏                                   | 81/1000 [12:01<2:21:30,  9.24s/it]
+ | Global Training Round : 82 |
+
+  8%|███▏                                   | 82/1000 [12:08<2:11:14,  8.58s/it]
+ | Global Training Round : 83 |
+
+  8%|███▏                                   | 83/1000 [12:15<2:04:03,  8.12s/it]
+ | Global Training Round : 84 |
+
+  8%|███▎                                   | 84/1000 [12:22<1:59:00,  7.80s/it]
+ | Global Training Round : 85 |
+
+
+Avg Training Stats after 85 global rounds:
+Train Accuracy: 60.00%
+
+test accuracy: 0.74494 after 85 epochs
+
+test accuracy: 0.6898 after 85 epochs
+
+  8%|███▎                                   | 85/1000 [12:38<2:37:42, 10.34s/it]
+ | Global Training Round : 86 |
+
+  9%|███▎                                   | 86/1000 [12:46<2:26:41,  9.63s/it]
+ | Global Training Round : 87 |
+
+  9%|███▍                                   | 87/1000 [12:53<2:14:42,  8.85s/it]
+ | Global Training Round : 88 |
+
+  9%|███▍                                   | 88/1000 [13:00<2:06:19,  8.31s/it]
+ | Global Training Round : 89 |
+
+  9%|███▍                                   | 89/1000 [13:07<2:00:22,  7.93s/it]
+ | Global Training Round : 90 |
+
+
+Avg Training Stats after 90 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.753 after 90 epochs
+
+test accuracy: 0.6958 after 90 epochs
+
+  9%|███▌                                   | 90/1000 [13:25<2:42:45, 10.73s/it]
+ | Global Training Round : 91 |
+
+  9%|███▌                                   | 91/1000 [13:33<2:29:35,  9.87s/it]
+ | Global Training Round : 92 |
+
+  9%|███▌                                   | 92/1000 [13:40<2:17:14,  9.07s/it]
+ | Global Training Round : 93 |
+
+  9%|███▋                                   | 93/1000 [13:47<2:08:33,  8.50s/it]
+ | Global Training Round : 94 |
+
+  9%|███▋                                   | 94/1000 [13:54<2:02:08,  8.09s/it]
+ | Global Training Round : 95 |
+
+
+Avg Training Stats after 95 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.75672 after 95 epochs
+
+test accuracy: 0.6952 after 95 epochs
+
+ 10%|███▋                                   | 95/1000 [14:10<2:36:35, 10.38s/it]
+ | Global Training Round : 96 |
+
+ 10%|███▋                                   | 96/1000 [14:17<2:21:20,  9.38s/it]
+ | Global Training Round : 97 |
+
+ 10%|███▊                                   | 97/1000 [14:24<2:10:38,  8.68s/it]
+ | Global Training Round : 98 |
+
+ 10%|███▊                                   | 98/1000 [14:31<2:03:06,  8.19s/it]
+ | Global Training Round : 99 |
+
+ 10%|███▊                                   | 99/1000 [14:38<1:57:47,  7.84s/it]
+ | Global Training Round : 100 |
+
+
+Avg Training Stats after 100 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.76926 after 100 epochs
+
+test accuracy: 0.7032 after 100 epochs
+
+ 10%|███▊                                  | 100/1000 [14:54<2:33:10, 10.21s/it]
+ | Global Training Round : 101 |
+
+ 10%|███▊                                  | 101/1000 [15:01<2:18:50,  9.27s/it]
+ | Global Training Round : 102 |
+
+ 10%|███▉                                  | 102/1000 [15:08<2:08:44,  8.60s/it]
+ | Global Training Round : 103 |
+
+ 10%|███▉                                  | 103/1000 [15:15<2:01:35,  8.13s/it]
+ | Global Training Round : 104 |
+
+ 10%|███▉                                  | 104/1000 [15:22<1:56:31,  7.80s/it]
+ | Global Training Round : 105 |
+
+
+Avg Training Stats after 105 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.77678 after 105 epochs
+
+test accuracy: 0.7093 after 105 epochs
+
+ 10%|███▉                                  | 105/1000 [15:38<2:31:58, 10.19s/it]
+ | Global Training Round : 106 |
+
+ 11%|████                                  | 106/1000 [15:45<2:17:48,  9.25s/it]
+ | Global Training Round : 107 |
+
+ 11%|████                                  | 107/1000 [15:52<2:07:49,  8.59s/it]
+ | Global Training Round : 108 |
+
+ 11%|████                                  | 108/1000 [15:59<2:00:45,  8.12s/it]
+ | Global Training Round : 109 |
+
+ 11%|████▏                                 | 109/1000 [16:06<1:55:46,  7.80s/it]
+ | Global Training Round : 110 |
+
+
+Avg Training Stats after 110 global rounds:
+Train Accuracy: 50.00%
+
+test accuracy: 0.7813 after 110 epochs
+
+test accuracy: 0.711 after 110 epochs
+
+ 11%|████▏                                 | 110/1000 [16:22<2:30:56, 10.18s/it]
+ | Global Training Round : 111 |
+
+ 11%|████▏                                 | 111/1000 [16:29<2:16:57,  9.24s/it]
+ | Global Training Round : 112 |
+
+ 11%|████▎                                 | 112/1000 [16:36<2:07:02,  8.58s/it]
+ | Global Training Round : 113 |
+
+ 11%|████▎                                 | 113/1000 [16:43<2:00:04,  8.12s/it]
+ | Global Training Round : 114 |
+
+ 11%|████▎                                 | 114/1000 [16:50<1:55:11,  7.80s/it]
+ | Global Training Round : 115 |
+
+
+Avg Training Stats after 115 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.7881 after 115 epochs
+
+test accuracy: 0.7146 after 115 epochs
+
+ 12%|████▎                                 | 115/1000 [17:06<2:33:08, 10.38s/it]
+ | Global Training Round : 116 |
+
+ 12%|████▍                                 | 116/1000 [17:14<2:22:27,  9.67s/it]
+ | Global Training Round : 117 |
+
+ 12%|████▍                                 | 117/1000 [17:21<2:11:03,  8.91s/it]
+ | Global Training Round : 118 |
+
+ 12%|████▍                                 | 118/1000 [17:28<2:03:02,  8.37s/it]
+ | Global Training Round : 119 |
+
+ 12%|████▌                                 | 119/1000 [17:36<1:57:40,  8.01s/it]
+ | Global Training Round : 120 |
+
+
+Avg Training Stats after 120 global rounds:
+Train Accuracy: 66.00%
+
+test accuracy: 0.79338 after 120 epochs
+
+test accuracy: 0.7169 after 120 epochs
+
+ 12%|████▌                                 | 120/1000 [17:52<2:33:03, 10.44s/it]
+ | Global Training Round : 121 |
+
+ 12%|████▌                                 | 121/1000 [17:59<2:18:50,  9.48s/it]
+ | Global Training Round : 122 |
+
+ 12%|████▋                                 | 122/1000 [18:06<2:08:48,  8.80s/it]
+ | Global Training Round : 123 |
+
+ 12%|████▋                                 | 123/1000 [18:13<2:01:48,  8.33s/it]
+ | Global Training Round : 124 |
+
+ 12%|████▋                                 | 124/1000 [18:21<1:57:22,  8.04s/it]
+ | Global Training Round : 125 |
+
+
+Avg Training Stats after 125 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.79838 after 125 epochs
+
+test accuracy: 0.7155 after 125 epochs
+
+ 12%|████▊                                 | 125/1000 [18:37<2:32:05, 10.43s/it]
+ | Global Training Round : 126 |
+
+ 13%|████▊                                 | 126/1000 [18:44<2:17:30,  9.44s/it]
+ | Global Training Round : 127 |
+
+ 13%|████▊                                 | 127/1000 [18:51<2:07:12,  8.74s/it]
+ | Global Training Round : 128 |
+
+ 13%|████▊                                 | 128/1000 [18:58<1:59:58,  8.25s/it]
+ | Global Training Round : 129 |
+
+ 13%|████▉                                 | 129/1000 [19:05<1:54:53,  7.91s/it]
+ | Global Training Round : 130 |
+
+
+Avg Training Stats after 130 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.80712 after 130 epochs
+
+test accuracy: 0.7214 after 130 epochs
+
+ 13%|████▉                                 | 130/1000 [19:21<2:29:40, 10.32s/it]
+ | Global Training Round : 131 |
+
+ 13%|████▉                                 | 131/1000 [19:28<2:15:39,  9.37s/it]
+ | Global Training Round : 132 |
+
+ 13%|█████                                 | 132/1000 [19:35<2:05:42,  8.69s/it]
+ | Global Training Round : 133 |
+
+ 13%|█████                                 | 133/1000 [19:43<1:58:37,  8.21s/it]
+ | Global Training Round : 134 |
+
+ 13%|█████                                 | 134/1000 [19:50<1:53:19,  7.85s/it]
+ | Global Training Round : 135 |
+
+
+Avg Training Stats after 135 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.8134 after 135 epochs
+
+test accuracy: 0.7253 after 135 epochs
+
+ 14%|█████▏                                | 135/1000 [20:05<2:27:03, 10.20s/it]
+ | Global Training Round : 136 |
+
+ 14%|█████▏                                | 136/1000 [20:12<2:13:11,  9.25s/it]
+ | Global Training Round : 137 |
+
+ 14%|█████▏                                | 137/1000 [20:19<2:03:24,  8.58s/it]
+ | Global Training Round : 138 |
+
+ 14%|█████▏                                | 138/1000 [20:26<1:56:29,  8.11s/it]
+ | Global Training Round : 139 |
+
+ 14%|█████▎                                | 139/1000 [20:33<1:51:40,  7.78s/it]
+ | Global Training Round : 140 |
+
+
+Avg Training Stats after 140 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.81968 after 140 epochs
+
+test accuracy: 0.7308 after 140 epochs
+
+ 14%|█████▎                                | 140/1000 [20:49<2:26:37, 10.23s/it]
+ | Global Training Round : 141 |
+
+ 14%|█████▎                                | 141/1000 [20:57<2:16:49,  9.56s/it]
+ | Global Training Round : 142 |
+
+ 14%|█████▍                                | 142/1000 [21:04<2:06:06,  8.82s/it]
+ | Global Training Round : 143 |
+
+ 14%|█████▍                                | 143/1000 [21:11<1:58:37,  8.30s/it]
+ | Global Training Round : 144 |
+
+ 14%|█████▍                                | 144/1000 [21:19<1:53:20,  7.94s/it]
+ | Global Training Round : 145 |
+
+
+Avg Training Stats after 145 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.82202 after 145 epochs
+
+test accuracy: 0.73 after 145 epochs
+
+ 14%|█████▌                                | 145/1000 [21:34<2:27:12, 10.33s/it]
+ | Global Training Round : 146 |
+
+ 15%|█████▌                                | 146/1000 [21:42<2:13:19,  9.37s/it]
+ | Global Training Round : 147 |
+
+ 15%|█████▌                                | 147/1000 [21:49<2:03:32,  8.69s/it]
+ | Global Training Round : 148 |
+
+ 15%|█████▌                                | 148/1000 [21:56<1:56:37,  8.21s/it]
+ | Global Training Round : 149 |
+
+ 15%|█████▋                                | 149/1000 [22:03<1:51:43,  7.88s/it]
+ | Global Training Round : 150 |
+
+
+Avg Training Stats after 150 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.82466 after 150 epochs
+
+test accuracy: 0.7285 after 150 epochs
+
+ 15%|█████▋                                | 150/1000 [22:19<2:25:40, 10.28s/it]
+ | Global Training Round : 151 |
+
+ 15%|█████▋                                | 151/1000 [22:26<2:12:04,  9.33s/it]
+ | Global Training Round : 152 |
+
+ 15%|█████▊                                | 152/1000 [22:33<2:02:27,  8.66s/it]
+ | Global Training Round : 153 |
+
+ 15%|█████▊                                | 153/1000 [22:40<1:55:43,  8.20s/it]
+ | Global Training Round : 154 |
+
+ 15%|█████▊                                | 154/1000 [22:47<1:50:54,  7.87s/it]
+ | Global Training Round : 155 |
+
+
+Avg Training Stats after 155 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.82868 after 155 epochs
+
+test accuracy: 0.7303 after 155 epochs
+
+ 16%|█████▉                                | 155/1000 [23:03<2:24:42, 10.27s/it]
+ | Global Training Round : 156 |
+
+ 16%|█████▉                                | 156/1000 [23:10<2:11:10,  9.33s/it]
+ | Global Training Round : 157 |
+
+ 16%|█████▉                                | 157/1000 [23:17<2:01:50,  8.67s/it]
+ | Global Training Round : 158 |
+
+ 16%|██████                                | 158/1000 [23:24<1:55:06,  8.20s/it]
+ | Global Training Round : 159 |
+
+ 16%|██████                                | 159/1000 [23:32<1:50:37,  7.89s/it]
+ | Global Training Round : 160 |
+
+
+Avg Training Stats after 160 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.83486 after 160 epochs
+
+test accuracy: 0.7324 after 160 epochs
+
+ 16%|██████                                | 160/1000 [23:48<2:24:15, 10.30s/it]
+ | Global Training Round : 161 |
+
+ 16%|██████                                | 161/1000 [23:55<2:10:48,  9.35s/it]
+ | Global Training Round : 162 |
+
+ 16%|██████▏                               | 162/1000 [24:02<2:01:23,  8.69s/it]
+ | Global Training Round : 163 |
+
+ 16%|██████▏                               | 163/1000 [24:12<2:07:28,  9.14s/it]
+ | Global Training Round : 164 |
+
+ 16%|██████▏                               | 164/1000 [24:19<1:59:41,  8.59s/it]
+ | Global Training Round : 165 |
+
+
+Avg Training Stats after 165 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.8363 after 165 epochs
+
+test accuracy: 0.7329 after 165 epochs
+
+ 16%|██████▎                               | 165/1000 [24:37<2:36:41, 11.26s/it]
+ | Global Training Round : 166 |
+
+ 17%|██████▎                               | 166/1000 [24:45<2:24:16, 10.38s/it]
+ | Global Training Round : 167 |
+
+ 17%|██████▎                               | 167/1000 [24:52<2:10:49,  9.42s/it]
+ | Global Training Round : 168 |
+
+ 17%|██████▍                               | 168/1000 [24:59<2:00:58,  8.72s/it]
+ | Global Training Round : 169 |
+
+ 17%|██████▍                               | 169/1000 [25:06<1:53:49,  8.22s/it]
+ | Global Training Round : 170 |
+
+
+Avg Training Stats after 170 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.84138 after 170 epochs
+
+test accuracy: 0.7337 after 170 epochs
+
+ 17%|██████▍                               | 170/1000 [25:22<2:24:54, 10.48s/it]
+ | Global Training Round : 171 |
+
+ 17%|██████▍                               | 171/1000 [25:29<2:10:31,  9.45s/it]
+ | Global Training Round : 172 |
+
+ 17%|██████▌                               | 172/1000 [25:36<2:00:22,  8.72s/it]
+ | Global Training Round : 173 |
+
+ 17%|██████▌                               | 173/1000 [25:43<1:53:13,  8.22s/it]
+ | Global Training Round : 174 |
+
+ 17%|██████▌                               | 174/1000 [25:50<1:48:11,  7.86s/it]
+ | Global Training Round : 175 |
+
+
+Avg Training Stats after 175 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.84536 after 175 epochs
+
+test accuracy: 0.7364 after 175 epochs
+
+ 18%|██████▋                               | 175/1000 [26:06<2:21:48, 10.31s/it]
+ | Global Training Round : 176 |
+
+ 18%|██████▋                               | 176/1000 [26:13<2:08:34,  9.36s/it]
+ | Global Training Round : 177 |
+
+ 18%|██████▋                               | 177/1000 [26:21<1:59:11,  8.69s/it]
+ | Global Training Round : 178 |
+
+ 18%|██████▊                               | 178/1000 [26:28<1:52:36,  8.22s/it]
+ | Global Training Round : 179 |
+
+ 18%|██████▊                               | 179/1000 [26:35<1:47:58,  7.89s/it]
+ | Global Training Round : 180 |
+
+
+Avg Training Stats after 180 global rounds:
+Train Accuracy: 60.00%
+
+test accuracy: 0.84928 after 180 epochs
+
+test accuracy: 0.7431 after 180 epochs
+
+ 18%|██████▊                               | 180/1000 [26:51<2:20:47, 10.30s/it]
+ | Global Training Round : 181 |
+
+ 18%|██████▉                               | 181/1000 [26:58<2:07:38,  9.35s/it]
+ | Global Training Round : 182 |
+
+ 18%|██████▉                               | 182/1000 [27:05<1:58:13,  8.67s/it]
+ | Global Training Round : 183 |
+
+ 18%|██████▉                               | 183/1000 [27:12<1:51:25,  8.18s/it]
+ | Global Training Round : 184 |
+
+ 18%|██████▉                               | 184/1000 [27:19<1:46:36,  7.84s/it]
+ | Global Training Round : 185 |
+
+
+Avg Training Stats after 185 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.85304 after 185 epochs
+
+test accuracy: 0.7404 after 185 epochs
+
+ 18%|███████                               | 185/1000 [27:35<2:18:40, 10.21s/it]
+ | Global Training Round : 186 |
+
+ 19%|███████                               | 186/1000 [27:42<2:05:40,  9.26s/it]
+ | Global Training Round : 187 |
+
+ 19%|███████                               | 187/1000 [27:49<1:56:29,  8.60s/it]
+ | Global Training Round : 188 |
+
+ 19%|███████▏                              | 188/1000 [27:56<1:50:01,  8.13s/it]
+ | Global Training Round : 189 |
+
+ 19%|███████▏                              | 189/1000 [28:03<1:45:28,  7.80s/it]
+ | Global Training Round : 190 |
+
+
+Avg Training Stats after 190 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.85548 after 190 epochs
+
+test accuracy: 0.7437 after 190 epochs
+
+ 19%|███████▏                              | 190/1000 [28:19<2:17:30, 10.19s/it]
+ | Global Training Round : 191 |
+
+ 19%|███████▎                              | 191/1000 [28:26<2:04:39,  9.25s/it]
+ | Global Training Round : 192 |
+
+ 19%|███████▎                              | 192/1000 [28:33<1:55:36,  8.59s/it]
+ | Global Training Round : 193 |
+
+ 19%|███████▎                              | 193/1000 [28:40<1:49:16,  8.12s/it]
+ | Global Training Round : 194 |
+
+ 19%|███████▎                              | 194/1000 [28:47<1:44:48,  7.80s/it]
+ | Global Training Round : 195 |
+
+
+Avg Training Stats after 195 global rounds:
+Train Accuracy: 66.00%
+
+test accuracy: 0.8572 after 195 epochs
+
+test accuracy: 0.7452 after 195 epochs
+
+ 20%|███████▍                              | 195/1000 [29:03<2:16:44, 10.19s/it]
+ | Global Training Round : 196 |
+
+ 20%|███████▍                              | 196/1000 [29:10<2:04:04,  9.26s/it]
+ | Global Training Round : 197 |
+
+ 20%|███████▍                              | 197/1000 [29:17<1:55:04,  8.60s/it]
+ | Global Training Round : 198 |
+
+ 20%|███████▌                              | 198/1000 [29:24<1:48:43,  8.13s/it]
+ | Global Training Round : 199 |
+
+ 20%|███████▌                              | 199/1000 [29:31<1:44:14,  7.81s/it]
+ | Global Training Round : 200 |
+
+
+Avg Training Stats after 200 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.86132 after 200 epochs
+
+test accuracy: 0.743 after 200 epochs
+
+ 20%|███████▌                              | 200/1000 [29:47<2:15:49, 10.19s/it]
+ | Global Training Round : 201 |
+
+ 20%|███████▋                              | 201/1000 [29:54<2:03:09,  9.25s/it]
+ | Global Training Round : 202 |
+
+ 20%|███████▋                              | 202/1000 [30:01<1:54:12,  8.59s/it]
+ | Global Training Round : 203 |
+
+ 20%|███████▋                              | 203/1000 [30:08<1:47:54,  8.12s/it]
+ | Global Training Round : 204 |
+
+ 20%|███████▊                              | 204/1000 [30:15<1:43:28,  7.80s/it]
+ | Global Training Round : 205 |
+
+
+Avg Training Stats after 205 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.85962 after 205 epochs
+
+test accuracy: 0.742 after 205 epochs
+
+ 20%|███████▊                              | 205/1000 [30:31<2:14:56, 10.18s/it]
+ | Global Training Round : 206 |
+
+ 21%|███████▊                              | 206/1000 [30:38<2:02:21,  9.25s/it]
+ | Global Training Round : 207 |
+
+ 21%|███████▊                              | 207/1000 [30:45<1:53:29,  8.59s/it]
+ | Global Training Round : 208 |
+
+ 21%|███████▉                              | 208/1000 [30:52<1:47:15,  8.13s/it]
+ | Global Training Round : 209 |
+
+ 21%|███████▉                              | 209/1000 [30:59<1:42:50,  7.80s/it]
+ | Global Training Round : 210 |
+
+
+Avg Training Stats after 210 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.86316 after 210 epochs
+
+test accuracy: 0.7477 after 210 epochs
+
+ 21%|███████▉                              | 210/1000 [31:15<2:14:10, 10.19s/it]
+ | Global Training Round : 211 |
+
+ 21%|████████                              | 211/1000 [31:22<2:01:38,  9.25s/it]
+ | Global Training Round : 212 |
+
+ 21%|████████                              | 212/1000 [31:30<1:57:39,  8.96s/it]
+ | Global Training Round : 213 |
+
+ 21%|████████                              | 213/1000 [31:38<1:52:30,  8.58s/it]
+ | Global Training Round : 214 |
+
+ 21%|████████▏                             | 214/1000 [31:45<1:46:26,  8.13s/it]
+ | Global Training Round : 215 |
+
+
+Avg Training Stats after 215 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.86586 after 215 epochs
+
+test accuracy: 0.7475 after 215 epochs
+
+ 22%|████████▏                             | 215/1000 [32:00<2:16:05, 10.40s/it]
+ | Global Training Round : 216 |
+
+ 22%|████████▏                             | 216/1000 [32:07<2:02:49,  9.40s/it]
+ | Global Training Round : 217 |
+
+ 22%|████████▏                             | 217/1000 [32:14<1:53:25,  8.69s/it]
+ | Global Training Round : 218 |
+
+ 22%|████████▎                             | 218/1000 [32:22<1:46:53,  8.20s/it]
+ | Global Training Round : 219 |
+
+ 22%|████████▎                             | 219/1000 [32:29<1:42:14,  7.85s/it]
+ | Global Training Round : 220 |
+
+
+Avg Training Stats after 220 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.86968 after 220 epochs
+
+test accuracy: 0.7472 after 220 epochs
+
+ 22%|████████▎                             | 220/1000 [32:44<2:12:50, 10.22s/it]
+ | Global Training Round : 221 |
+
+ 22%|████████▍                             | 221/1000 [32:51<2:00:22,  9.27s/it]
+ | Global Training Round : 222 |
+
+ 22%|████████▍                             | 222/1000 [32:58<1:51:30,  8.60s/it]
+ | Global Training Round : 223 |
+
+ 22%|████████▍                             | 223/1000 [33:05<1:45:19,  8.13s/it]
+ | Global Training Round : 224 |
+
+ 22%|████████▌                             | 224/1000 [33:13<1:40:57,  7.81s/it]
+ | Global Training Round : 225 |
+
+
+Avg Training Stats after 225 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.87012 after 225 epochs
+
+test accuracy: 0.7476 after 225 epochs
+
+ 22%|████████▌                             | 225/1000 [33:28<2:11:35, 10.19s/it]
+ | Global Training Round : 226 |
+
+ 23%|████████▌                             | 226/1000 [33:35<1:59:18,  9.25s/it]
+ | Global Training Round : 227 |
+
+ 23%|████████▋                             | 227/1000 [33:42<1:50:37,  8.59s/it]
+ | Global Training Round : 228 |
+
+ 23%|████████▋                             | 228/1000 [33:49<1:44:30,  8.12s/it]
+ | Global Training Round : 229 |
+
+ 23%|████████▋                             | 229/1000 [33:56<1:40:09,  7.79s/it]
+ | Global Training Round : 230 |
+
+
+Avg Training Stats after 230 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.87574 after 230 epochs
+
+test accuracy: 0.748 after 230 epochs
+
+ 23%|████████▋                             | 230/1000 [34:12<2:10:36, 10.18s/it]
+ | Global Training Round : 231 |
+
+ 23%|████████▊                             | 231/1000 [34:19<1:58:27,  9.24s/it]
+ | Global Training Round : 232 |
+
+ 23%|████████▊                             | 232/1000 [34:26<1:49:53,  8.58s/it]
+ | Global Training Round : 233 |
+
+ 23%|████████▊                             | 233/1000 [34:33<1:43:49,  8.12s/it]
+ | Global Training Round : 234 |
+
+ 23%|████████▉                             | 234/1000 [34:40<1:39:32,  7.80s/it]
+ | Global Training Round : 235 |
+
+
+Avg Training Stats after 235 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.8759 after 235 epochs
+
+test accuracy: 0.7528 after 235 epochs
+
+ 24%|████████▉                             | 235/1000 [34:56<2:09:43, 10.17s/it]
+ | Global Training Round : 236 |
+
+ 24%|████████▉                             | 236/1000 [35:03<1:57:36,  9.24s/it]
+ | Global Training Round : 237 |
+
+ 24%|█████████                             | 237/1000 [35:10<1:49:03,  8.58s/it]
+ | Global Training Round : 238 |
+
+ 24%|█████████                             | 238/1000 [35:17<1:43:05,  8.12s/it]
+ | Global Training Round : 239 |
+
+ 24%|█████████                             | 239/1000 [35:24<1:38:55,  7.80s/it]
+ | Global Training Round : 240 |
+
+
+Avg Training Stats after 240 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.87738 after 240 epochs
+
+test accuracy: 0.7474 after 240 epochs
+
+ 24%|█████████                             | 240/1000 [35:40<2:09:02, 10.19s/it]
+ | Global Training Round : 241 |
+
+ 24%|█████████▏                            | 241/1000 [35:47<1:57:01,  9.25s/it]
+ | Global Training Round : 242 |
+
+ 24%|█████████▏                            | 242/1000 [35:54<1:48:29,  8.59s/it]
+ | Global Training Round : 243 |
+
+ 24%|█████████▏                            | 243/1000 [36:01<1:42:31,  8.13s/it]
+ | Global Training Round : 244 |
+
+ 24%|█████████▎                            | 244/1000 [36:08<1:38:18,  7.80s/it]
+ | Global Training Round : 245 |
+
+
+Avg Training Stats after 245 global rounds:
+Train Accuracy: 66.00%
+
+test accuracy: 0.878 after 245 epochs
+
+test accuracy: 0.7516 after 245 epochs
+
+ 24%|█████████▎                            | 245/1000 [36:24<2:08:14, 10.19s/it]
+ | Global Training Round : 246 |
+
+ 25%|█████████▎                            | 246/1000 [36:31<1:56:16,  9.25s/it]
+ | Global Training Round : 247 |
+
+ 25%|█████████▍                            | 247/1000 [36:38<1:47:47,  8.59s/it]
+ | Global Training Round : 248 |
+
+ 25%|█████████▍                            | 248/1000 [36:45<1:41:49,  8.12s/it]
+ | Global Training Round : 249 |
+
+ 25%|█████████▍                            | 249/1000 [36:52<1:37:48,  7.81s/it]
+ | Global Training Round : 250 |
+
+
+Avg Training Stats after 250 global rounds:
+Train Accuracy: 58.00%
+
+test accuracy: 0.87758 after 250 epochs
+
+test accuracy: 0.7523 after 250 epochs
+
+ 25%|█████████▌                            | 250/1000 [37:08<2:08:09, 10.25s/it]
+ | Global Training Round : 251 |
+
+ 25%|█████████▌                            | 251/1000 [37:15<1:56:17,  9.32s/it]
+ | Global Training Round : 252 |
+
+ 25%|█████████▌                            | 252/1000 [37:22<1:47:55,  8.66s/it]
+ | Global Training Round : 253 |
+
+ 25%|█████████▌                            | 253/1000 [37:30<1:41:59,  8.19s/it]
+ | Global Training Round : 254 |
+
+ 25%|█████████▋                            | 254/1000 [37:37<1:37:50,  7.87s/it]
+ | Global Training Round : 255 |
+
+
+Avg Training Stats after 255 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.88246 after 255 epochs
+
+test accuracy: 0.7498 after 255 epochs
+
+ 26%|█████████▋                            | 255/1000 [37:53<2:07:40, 10.28s/it]
+ | Global Training Round : 256 |
+
+ 26%|█████████▋                            | 256/1000 [38:00<1:55:44,  9.33s/it]
+ | Global Training Round : 257 |
+
+ 26%|█████████▊                            | 257/1000 [38:07<1:47:19,  8.67s/it]
+ | Global Training Round : 258 |
+
+ 26%|█████████▊                            | 258/1000 [38:14<1:41:24,  8.20s/it]
+ | Global Training Round : 259 |
+
+ 26%|█████████▊                            | 259/1000 [38:21<1:37:14,  7.87s/it]
+ | Global Training Round : 260 |
+
+
+Avg Training Stats after 260 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.88602 after 260 epochs
+
+test accuracy: 0.753 after 260 epochs
+
+ 26%|█████████▉                            | 260/1000 [38:37<2:08:27, 10.42s/it]
+ | Global Training Round : 261 |
+
+ 26%|█████████▉                            | 261/1000 [38:45<1:59:34,  9.71s/it]
+ | Global Training Round : 262 |
+
+ 26%|█████████▉                            | 262/1000 [38:53<1:50:04,  8.95s/it]
+ | Global Training Round : 263 |
+
+ 26%|█████████▉                            | 263/1000 [39:00<1:43:28,  8.42s/it]
+ | Global Training Round : 264 |
+
+ 26%|██████████                            | 264/1000 [39:07<1:38:47,  8.05s/it]
+ | Global Training Round : 265 |
+
+
+Avg Training Stats after 265 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.88734 after 265 epochs
+
+test accuracy: 0.7515 after 265 epochs
+
+ 26%|██████████                            | 265/1000 [39:23<2:08:15, 10.47s/it]
+ | Global Training Round : 266 |
+
+ 27%|██████████                            | 266/1000 [39:30<1:56:05,  9.49s/it]
+ | Global Training Round : 267 |
+
+ 27%|██████████▏                           | 267/1000 [39:37<1:47:29,  8.80s/it]
+ | Global Training Round : 268 |
+
+ 27%|██████████▏                           | 268/1000 [39:45<1:41:21,  8.31s/it]
+ | Global Training Round : 269 |
+
+ 27%|██████████▏                           | 269/1000 [39:52<1:36:54,  7.95s/it]
+ | Global Training Round : 270 |
+
+
+Avg Training Stats after 270 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.8881 after 270 epochs
+
+test accuracy: 0.7538 after 270 epochs
+
+ 27%|██████████▎                           | 270/1000 [40:08<2:05:59, 10.36s/it]
+ | Global Training Round : 271 |
+
+ 27%|██████████▎                           | 271/1000 [40:15<1:54:06,  9.39s/it]
+ | Global Training Round : 272 |
+
+ 27%|██████████▎                           | 272/1000 [40:22<1:45:49,  8.72s/it]
+ | Global Training Round : 273 |
+
+ 27%|██████████▎                           | 273/1000 [40:29<1:40:36,  8.30s/it]
+ | Global Training Round : 274 |
+
+ 27%|██████████▍                           | 274/1000 [40:37<1:38:48,  8.17s/it]
+ | Global Training Round : 275 |
+
+
+Avg Training Stats after 275 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.88792 after 275 epochs
+
+test accuracy: 0.755 after 275 epochs
+
+ 28%|██████████▍                           | 275/1000 [40:53<2:06:55, 10.50s/it]
+ | Global Training Round : 276 |
+
+ 28%|██████████▍                           | 276/1000 [41:00<1:54:33,  9.49s/it]
+ | Global Training Round : 277 |
+
+ 28%|██████████▌                           | 277/1000 [41:07<1:45:49,  8.78s/it]
+ | Global Training Round : 278 |
+
+ 28%|██████████▌                           | 278/1000 [41:15<1:39:41,  8.28s/it]
+ | Global Training Round : 279 |
+
+ 28%|██████████▌                           | 279/1000 [41:22<1:35:22,  7.94s/it]
+ | Global Training Round : 280 |
+
+
+Avg Training Stats after 280 global rounds:
+Train Accuracy: 64.00%
+
+test accuracy: 0.88878 after 280 epochs
+
+test accuracy: 0.7535 after 280 epochs
+
+ 28%|██████████▋                           | 280/1000 [41:38<2:04:03, 10.34s/it]
+ | Global Training Round : 281 |
+
+ 28%|██████████▋                           | 281/1000 [41:45<1:52:27,  9.38s/it]
+ | Global Training Round : 282 |
+
+ 28%|██████████▋                           | 282/1000 [41:52<1:44:21,  8.72s/it]
+ | Global Training Round : 283 |
+
+ 28%|██████████▊                           | 283/1000 [41:59<1:38:43,  8.26s/it]
+ | Global Training Round : 284 |
+
+ 28%|██████████▊                           | 284/1000 [42:06<1:34:41,  7.94s/it]
+ | Global Training Round : 285 |
+
+
+Avg Training Stats after 285 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.89308 after 285 epochs
+
+test accuracy: 0.7541 after 285 epochs
+
+ 28%|██████████▊                           | 285/1000 [42:22<2:03:37, 10.37s/it]
+ | Global Training Round : 286 |
+
+ 29%|██████████▊                           | 286/1000 [42:30<1:52:04,  9.42s/it]
+ | Global Training Round : 287 |
+
+ 29%|██████████▉                           | 287/1000 [42:37<1:43:57,  8.75s/it]
+ | Global Training Round : 288 |
+
+ 29%|██████████▉                           | 288/1000 [42:44<1:38:12,  8.28s/it]
+ | Global Training Round : 289 |
+
+ 29%|██████████▉                           | 289/1000 [42:51<1:34:11,  7.95s/it]
+ | Global Training Round : 290 |
+
+
+Avg Training Stats after 290 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.89142 after 290 epochs
+
+test accuracy: 0.7572 after 290 epochs
+
+ 29%|███████████                           | 290/1000 [43:07<2:02:51, 10.38s/it]
+ | Global Training Round : 291 |
+
+ 29%|███████████                           | 291/1000 [43:14<1:51:21,  9.42s/it]
+ | Global Training Round : 292 |
+
+ 29%|███████████                           | 292/1000 [43:22<1:43:17,  8.75s/it]
+ | Global Training Round : 293 |
+
+ 29%|███████████▏                          | 293/1000 [43:29<1:37:34,  8.28s/it]
+ | Global Training Round : 294 |
+
+ 29%|███████████▏                          | 294/1000 [43:36<1:33:32,  7.95s/it]
+ | Global Training Round : 295 |
+
+
+Avg Training Stats after 295 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.89628 after 295 epochs
+
+test accuracy: 0.7575 after 295 epochs
+
+ 30%|███████████▏                          | 295/1000 [43:52<2:02:00, 10.38s/it]
+ | Global Training Round : 296 |
+
+ 30%|███████████▏                          | 296/1000 [43:59<1:50:34,  9.42s/it]
+ | Global Training Round : 297 |
+
+ 30%|███████████▎                          | 297/1000 [44:06<1:42:29,  8.75s/it]
+ | Global Training Round : 298 |
+
+ 30%|███████████▎                          | 298/1000 [44:13<1:36:48,  8.27s/it]
+ | Global Training Round : 299 |
+
+ 30%|███████████▎                          | 299/1000 [44:21<1:32:47,  7.94s/it]
+ | Global Training Round : 300 |
+
+
+Avg Training Stats after 300 global rounds:
+Train Accuracy: 66.00%
+
+test accuracy: 0.893 after 300 epochs
+
+test accuracy: 0.7555 after 300 epochs
+
+ 30%|███████████▍                          | 300/1000 [44:37<2:01:04, 10.38s/it]
+ | Global Training Round : 301 |
+
+ 30%|███████████▍                          | 301/1000 [44:44<1:49:44,  9.42s/it]
+ | Global Training Round : 302 |
+
+ 30%|███████████▍                          | 302/1000 [44:51<1:41:45,  8.75s/it]
+ | Global Training Round : 303 |
+
+ 30%|███████████▌                          | 303/1000 [44:58<1:36:17,  8.29s/it]
+ | Global Training Round : 304 |
+
+ 30%|███████████▌                          | 304/1000 [45:09<1:44:30,  9.01s/it]
+ | Global Training Round : 305 |
+
+
+Avg Training Stats after 305 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.8943 after 305 epochs
+
+test accuracy: 0.7535 after 305 epochs
+
+ 30%|███████████▌                          | 305/1000 [45:25<2:09:15, 11.16s/it]
+ | Global Training Round : 306 |
+
+ 31%|███████████▋                          | 306/1000 [45:32<1:55:17,  9.97s/it]
+ | Global Training Round : 307 |
+
+ 31%|███████████▋                          | 307/1000 [45:39<1:45:12,  9.11s/it]
+ | Global Training Round : 308 |
+
+ 31%|███████████▋                          | 308/1000 [45:47<1:38:08,  8.51s/it]
+ | Global Training Round : 309 |
+
+ 31%|███████████▋                          | 309/1000 [45:54<1:33:09,  8.09s/it]
+ | Global Training Round : 310 |
+
+
+Avg Training Stats after 310 global rounds:
+Train Accuracy: 88.00%
+
+test accuracy: 0.89784 after 310 epochs
+
+test accuracy: 0.7638 after 310 epochs
+
+ 31%|███████████▊                          | 310/1000 [46:10<2:00:08, 10.45s/it]
+ | Global Training Round : 311 |
+
+ 31%|███████████▊                          | 311/1000 [46:17<1:48:31,  9.45s/it]
+ | Global Training Round : 312 |
+
+ 31%|███████████▊                          | 312/1000 [46:24<1:40:20,  8.75s/it]
+ | Global Training Round : 313 |
+
+ 31%|███████████▉                          | 313/1000 [46:31<1:34:35,  8.26s/it]
+ | Global Training Round : 314 |
+
+ 31%|███████████▉                          | 314/1000 [46:38<1:30:30,  7.92s/it]
+ | Global Training Round : 315 |
+
+
+Avg Training Stats after 315 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.89736 after 315 epochs
+
+test accuracy: 0.7601 after 315 epochs
+
+ 32%|███████████▉                          | 315/1000 [46:54<1:57:48, 10.32s/it]
+ | Global Training Round : 316 |
+
+ 32%|████████████                          | 316/1000 [47:01<1:46:43,  9.36s/it]
+ | Global Training Round : 317 |
+
+ 32%|████████████                          | 317/1000 [47:08<1:38:54,  8.69s/it]
+ | Global Training Round : 318 |
+
+ 32%|████████████                          | 318/1000 [47:15<1:33:22,  8.21s/it]
+ | Global Training Round : 319 |
+
+ 32%|████████████                          | 319/1000 [47:22<1:29:29,  7.88s/it]
+ | Global Training Round : 320 |
+
+
+Avg Training Stats after 320 global rounds:
+Train Accuracy: 64.00%
+
+test accuracy: 0.89974 after 320 epochs
+
+test accuracy: 0.7579 after 320 epochs
+
+ 32%|████████████▏                         | 320/1000 [47:38<1:56:41, 10.30s/it]
+ | Global Training Round : 321 |
+
+ 32%|████████████▏                         | 321/1000 [47:45<1:45:34,  9.33s/it]
+ | Global Training Round : 322 |
+
+ 32%|████████████▏                         | 322/1000 [47:52<1:37:35,  8.64s/it]
+ | Global Training Round : 323 |
+
+ 32%|████████████▎                         | 323/1000 [48:00<1:31:57,  8.15s/it]
+ | Global Training Round : 324 |
+
+ 32%|████████████▎                         | 324/1000 [48:07<1:27:59,  7.81s/it]
+ | Global Training Round : 325 |
+
+
+Avg Training Stats after 325 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.90264 after 325 epochs
+
+test accuracy: 0.7611 after 325 epochs
+
+ 32%|████████████▎                         | 325/1000 [48:22<1:54:26, 10.17s/it]
+ | Global Training Round : 326 |
+
+ 33%|████████████▍                         | 326/1000 [48:29<1:43:43,  9.23s/it]
+ | Global Training Round : 327 |
+
+ 33%|████████████▍                         | 327/1000 [48:36<1:36:12,  8.58s/it]
+ | Global Training Round : 328 |
+
+ 33%|████████████▍                         | 328/1000 [48:43<1:30:52,  8.11s/it]
+ | Global Training Round : 329 |
+
+ 33%|████████████▌                         | 329/1000 [48:50<1:27:05,  7.79s/it]
+ | Global Training Round : 330 |
+
+
+Avg Training Stats after 330 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.9006 after 330 epochs
+
+test accuracy: 0.7616 after 330 epochs
+
+ 33%|████████████▌                         | 330/1000 [49:06<1:53:28, 10.16s/it]
+ | Global Training Round : 331 |
+
+ 33%|████████████▌                         | 331/1000 [49:13<1:42:51,  9.23s/it]
+ | Global Training Round : 332 |
+
+ 33%|████████████▌                         | 332/1000 [49:20<1:35:45,  8.60s/it]
+ | Global Training Round : 333 |
+
+ 33%|████████████▋                         | 333/1000 [49:27<1:30:32,  8.15s/it]
+ | Global Training Round : 334 |
+
+ 33%|████████████▋                         | 334/1000 [49:34<1:26:43,  7.81s/it]
+ | Global Training Round : 335 |
+
+
+Avg Training Stats after 335 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.90384 after 335 epochs
+
+test accuracy: 0.7582 after 335 epochs
+
+ 34%|████████████▋                         | 335/1000 [49:50<1:52:55, 10.19s/it]
+ | Global Training Round : 336 |
+
+ 34%|████████████▊                         | 336/1000 [49:57<1:42:18,  9.25s/it]
+ | Global Training Round : 337 |
+
+ 34%|████████████▊                         | 337/1000 [50:04<1:34:48,  8.58s/it]
+ | Global Training Round : 338 |
+
+ 34%|████████████▊                         | 338/1000 [50:11<1:29:32,  8.12s/it]
+ | Global Training Round : 339 |
+
+ 34%|████████████▉                         | 339/1000 [50:18<1:25:47,  7.79s/it]
+ | Global Training Round : 340 |
+
+
+Avg Training Stats after 340 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.89962 after 340 epochs
+
+test accuracy: 0.7562 after 340 epochs
+
+ 34%|████████████▉                         | 340/1000 [50:34<1:51:48, 10.16s/it]
+ | Global Training Round : 341 |
+
+ 34%|████████████▉                         | 341/1000 [50:41<1:41:19,  9.23s/it]
+ | Global Training Round : 342 |
+
+ 34%|████████████▉                         | 342/1000 [50:48<1:33:54,  8.56s/it]
+ | Global Training Round : 343 |
+
+ 34%|█████████████                         | 343/1000 [50:55<1:28:40,  8.10s/it]
+ | Global Training Round : 344 |
+
+ 34%|█████████████                         | 344/1000 [51:02<1:24:59,  7.77s/it]
+ | Global Training Round : 345 |
+
+
+Avg Training Stats after 345 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.90448 after 345 epochs
+
+test accuracy: 0.7587 after 345 epochs
+
+ 34%|█████████████                         | 345/1000 [51:18<1:50:55, 10.16s/it]
+ | Global Training Round : 346 |
+
+ 35%|█████████████▏                        | 346/1000 [51:25<1:40:37,  9.23s/it]
+ | Global Training Round : 347 |
+
+ 35%|█████████████▏                        | 347/1000 [51:32<1:33:17,  8.57s/it]
+ | Global Training Round : 348 |
+
+ 35%|█████████████▏                        | 348/1000 [51:40<1:30:22,  8.32s/it]
+ | Global Training Round : 349 |
+
+ 35%|█████████████▎                        | 349/1000 [51:50<1:37:03,  8.94s/it]
+ | Global Training Round : 350 |
+
+
+Avg Training Stats after 350 global rounds:
+Train Accuracy: 60.00%
+
+test accuracy: 0.90698 after 350 epochs
+
+test accuracy: 0.7614 after 350 epochs
+
+ 35%|█████████████▎                        | 350/1000 [52:06<1:58:58, 10.98s/it]
+ | Global Training Round : 351 |
+
+ 35%|█████████████▎                        | 351/1000 [52:13<1:46:04,  9.81s/it]
+ | Global Training Round : 352 |
+
+ 35%|█████████████▍                        | 352/1000 [52:20<1:37:31,  9.03s/it]
+ | Global Training Round : 353 |
+
+ 35%|█████████████▍                        | 353/1000 [52:27<1:31:30,  8.49s/it]
+ | Global Training Round : 354 |
+
+ 35%|█████████████▍                        | 354/1000 [52:34<1:27:07,  8.09s/it]
+ | Global Training Round : 355 |
+
+
+Avg Training Stats after 355 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.90598 after 355 epochs
+
+test accuracy: 0.7629 after 355 epochs
+
+ 36%|█████████████▍                        | 355/1000 [52:50<1:52:43, 10.49s/it]
+ | Global Training Round : 356 |
+
+ 36%|█████████████▌                        | 356/1000 [52:58<1:41:45,  9.48s/it]
+ | Global Training Round : 357 |
+
+ 36%|█████████████▌                        | 357/1000 [53:05<1:33:59,  8.77s/it]
+ | Global Training Round : 358 |
+
+ 36%|█████████████▌                        | 358/1000 [53:12<1:28:30,  8.27s/it]
+ | Global Training Round : 359 |
+
+ 36%|█████████████▋                        | 359/1000 [53:19<1:24:42,  7.93s/it]
+ | Global Training Round : 360 |
+
+
+Avg Training Stats after 360 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.90782 after 360 epochs
+
+test accuracy: 0.7583 after 360 epochs
+
+ 36%|█████████████▋                        | 360/1000 [53:35<1:49:38, 10.28s/it]
+ | Global Training Round : 361 |
+
+ 36%|█████████████▋                        | 361/1000 [53:42<1:39:08,  9.31s/it]
+ | Global Training Round : 362 |
+
+ 36%|█████████████▊                        | 362/1000 [53:49<1:31:43,  8.63s/it]
+ | Global Training Round : 363 |
+
+ 36%|█████████████▊                        | 363/1000 [53:56<1:26:30,  8.15s/it]
+ | Global Training Round : 364 |
+
+ 36%|█████████████▊                        | 364/1000 [54:03<1:22:49,  7.81s/it]
+ | Global Training Round : 365 |
+
+
+Avg Training Stats after 365 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.91064 after 365 epochs
+
+test accuracy: 0.761 after 365 epochs
+
+ 36%|█████████████▊                        | 365/1000 [54:19<1:47:47, 10.19s/it]
+ | Global Training Round : 366 |
+
+ 37%|█████████████▉                        | 366/1000 [54:26<1:37:40,  9.24s/it]
+ | Global Training Round : 367 |
+
+ 37%|█████████████▉                        | 367/1000 [54:33<1:30:32,  8.58s/it]
+ | Global Training Round : 368 |
+
+ 37%|█████████████▉                        | 368/1000 [54:40<1:25:30,  8.12s/it]
+ | Global Training Round : 369 |
+
+ 37%|██████████████                        | 369/1000 [54:47<1:21:57,  7.79s/it]
+ | Global Training Round : 370 |
+
+
+Avg Training Stats after 370 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.90958 after 370 epochs
+
+test accuracy: 0.7592 after 370 epochs
+
+ 37%|██████████████                        | 370/1000 [55:02<1:46:48, 10.17s/it]
+ | Global Training Round : 371 |
+
+ 37%|██████████████                        | 371/1000 [55:09<1:36:48,  9.23s/it]
+ | Global Training Round : 372 |
+
+ 37%|██████████████▏                       | 372/1000 [55:17<1:29:42,  8.57s/it]
+ | Global Training Round : 373 |
+
+ 37%|██████████████▏                       | 373/1000 [55:24<1:24:46,  8.11s/it]
+ | Global Training Round : 374 |
+
+ 37%|██████████████▏                       | 374/1000 [55:31<1:21:16,  7.79s/it]
+ | Global Training Round : 375 |
+
+
+Avg Training Stats after 375 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.90956 after 375 epochs
+
+test accuracy: 0.7617 after 375 epochs
+
+ 38%|██████████████▎                       | 375/1000 [55:46<1:46:00, 10.18s/it]
+ | Global Training Round : 376 |
+
+ 38%|██████████████▎                       | 376/1000 [55:53<1:36:04,  9.24s/it]
+ | Global Training Round : 377 |
+
+ 38%|██████████████▎                       | 377/1000 [56:00<1:29:02,  8.58s/it]
+ | Global Training Round : 378 |
+
+ 38%|██████████████▎                       | 378/1000 [56:07<1:24:06,  8.11s/it]
+ | Global Training Round : 379 |
+
+ 38%|██████████████▍                       | 379/1000 [56:14<1:20:38,  7.79s/it]
+ | Global Training Round : 380 |
+
+
+Avg Training Stats after 380 global rounds:
+Train Accuracy: 64.00%
+
+test accuracy: 0.91126 after 380 epochs
+
+test accuracy: 0.7636 after 380 epochs
+
+ 38%|██████████████▍                       | 380/1000 [56:30<1:44:59, 10.16s/it]
+ | Global Training Round : 381 |
+
+ 38%|██████████████▍                       | 381/1000 [56:37<1:35:10,  9.22s/it]
+ | Global Training Round : 382 |
+
+ 38%|██████████████▌                       | 382/1000 [56:44<1:28:12,  8.56s/it]
+ | Global Training Round : 383 |
+
+ 38%|██████████████▌                       | 383/1000 [56:51<1:23:18,  8.10s/it]
+ | Global Training Round : 384 |
+
+ 38%|██████████████▌                       | 384/1000 [56:58<1:19:51,  7.78s/it]
+ | Global Training Round : 385 |
+
+
+Avg Training Stats after 385 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.91524 after 385 epochs
+
+test accuracy: 0.7641 after 385 epochs
+
+ 38%|██████████████▋                       | 385/1000 [57:14<1:44:05, 10.15s/it]
+ | Global Training Round : 386 |
+
+ 39%|██████████████▋                       | 386/1000 [57:21<1:34:22,  9.22s/it]
+ | Global Training Round : 387 |
+
+ 39%|██████████████▋                       | 387/1000 [57:28<1:27:45,  8.59s/it]
+ | Global Training Round : 388 |
+
+ 39%|██████████████▋                       | 388/1000 [57:35<1:23:23,  8.18s/it]
+ | Global Training Round : 389 |
+
+ 39%|██████████████▊                       | 389/1000 [57:43<1:20:24,  7.90s/it]
+ | Global Training Round : 390 |
+
+
+Avg Training Stats after 390 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.91286 after 390 epochs
+
+test accuracy: 0.7602 after 390 epochs
+
+ 39%|██████████████▊                       | 390/1000 [57:59<1:45:36, 10.39s/it]
+ | Global Training Round : 391 |
+
+ 39%|██████████████▊                       | 391/1000 [58:06<1:35:48,  9.44s/it]
+ | Global Training Round : 392 |
+
+ 39%|██████████████▉                       | 392/1000 [58:13<1:28:54,  8.77s/it]
+ | Global Training Round : 393 |
+
+ 39%|██████████████▉                       | 393/1000 [58:20<1:23:57,  8.30s/it]
+ | Global Training Round : 394 |
+
+ 39%|██████████████▉                       | 394/1000 [58:28<1:20:12,  7.94s/it]
+ | Global Training Round : 395 |
+
+
+Avg Training Stats after 395 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.91496 after 395 epochs
+
+test accuracy: 0.7614 after 395 epochs
+
+ 40%|███████████████                       | 395/1000 [58:44<1:44:34, 10.37s/it]
+ | Global Training Round : 396 |
+
+ 40%|███████████████                       | 396/1000 [58:52<1:38:40,  9.80s/it]
+ | Global Training Round : 397 |
+
+ 40%|███████████████                       | 397/1000 [58:59<1:30:46,  9.03s/it]
+ | Global Training Round : 398 |
+
+ 40%|███████████████                       | 398/1000 [59:06<1:24:57,  8.47s/it]
+ | Global Training Round : 399 |
+
+ 40%|███████████████▏                      | 399/1000 [59:14<1:20:45,  8.06s/it]
+ | Global Training Round : 400 |
+
+
+Avg Training Stats after 400 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.91654 after 400 epochs
+
+test accuracy: 0.76 after 400 epochs
+
+ 40%|███████████████▏                      | 400/1000 [59:30<1:44:13, 10.42s/it]
+ | Global Training Round : 401 |
+
+ 40%|███████████████▏                      | 401/1000 [59:37<1:34:11,  9.43s/it]
+ | Global Training Round : 402 |
+
+ 40%|███████████████▎                      | 402/1000 [59:44<1:27:10,  8.75s/it]
+ | Global Training Round : 403 |
+
+ 40%|███████████████▎                      | 403/1000 [59:51<1:21:58,  8.24s/it]
+ | Global Training Round : 404 |
+
+ 40%|███████████████▎                      | 404/1000 [59:58<1:18:13,  7.88s/it]
+ | Global Training Round : 405 |
+
+
+Avg Training Stats after 405 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.91788 after 405 epochs
+
+test accuracy: 0.7645 after 405 epochs
+
+ 40%|██████████████▌                     | 405/1000 [1:00:14<1:41:26, 10.23s/it]
+ | Global Training Round : 406 |
+
+ 41%|██████████████▌                     | 406/1000 [1:00:21<1:31:48,  9.27s/it]
+ | Global Training Round : 407 |
+
+ 41%|██████████████▋                     | 407/1000 [1:00:28<1:25:12,  8.62s/it]
+ | Global Training Round : 408 |
+
+ 41%|██████████████▋                     | 408/1000 [1:00:35<1:20:37,  8.17s/it]
+ | Global Training Round : 409 |
+
+ 41%|██████████████▋                     | 409/1000 [1:00:42<1:17:23,  7.86s/it]
+ | Global Training Round : 410 |
+
+
+Avg Training Stats after 410 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.91818 after 410 epochs
+
+test accuracy: 0.7674 after 410 epochs
+
+ 41%|██████████████▊                     | 410/1000 [1:00:58<1:41:03, 10.28s/it]
+ | Global Training Round : 411 |
+
+ 41%|██████████████▊                     | 411/1000 [1:01:05<1:31:38,  9.33s/it]
+ | Global Training Round : 412 |
+
+ 41%|██████████████▊                     | 412/1000 [1:01:12<1:24:55,  8.67s/it]
+ | Global Training Round : 413 |
+
+ 41%|██████████████▊                     | 413/1000 [1:01:19<1:20:14,  8.20s/it]
+ | Global Training Round : 414 |
+
+ 41%|██████████████▉                     | 414/1000 [1:01:26<1:16:54,  7.87s/it]
+ | Global Training Round : 415 |
+
+
+Avg Training Stats after 415 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.9127 after 415 epochs
+
+test accuracy: 0.7658 after 415 epochs
+
+ 42%|██████████████▉                     | 415/1000 [1:01:42<1:40:18, 10.29s/it]
+ | Global Training Round : 416 |
+
+ 42%|██████████████▉                     | 416/1000 [1:01:49<1:30:54,  9.34s/it]
+ | Global Training Round : 417 |
+
+ 42%|███████████████                     | 417/1000 [1:01:57<1:24:16,  8.67s/it]
+ | Global Training Round : 418 |
+
+ 42%|███████████████                     | 418/1000 [1:02:04<1:19:35,  8.20s/it]
+ | Global Training Round : 419 |
+
+ 42%|███████████████                     | 419/1000 [1:02:11<1:16:15,  7.88s/it]
+ | Global Training Round : 420 |
+
+
+Avg Training Stats after 420 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.91828 after 420 epochs
+
+test accuracy: 0.7693 after 420 epochs
+
+ 42%|███████████████                     | 420/1000 [1:02:27<1:39:29, 10.29s/it]
+ | Global Training Round : 421 |
+
+ 42%|███████████████▏                    | 421/1000 [1:02:34<1:30:11,  9.35s/it]
+ | Global Training Round : 422 |
+
+ 42%|███████████████▏                    | 422/1000 [1:02:41<1:23:35,  8.68s/it]
+ | Global Training Round : 423 |
+
+ 42%|███████████████▏                    | 423/1000 [1:02:48<1:18:59,  8.21s/it]
+ | Global Training Round : 424 |
+
+ 42%|███████████████▎                    | 424/1000 [1:02:55<1:15:42,  7.89s/it]
+ | Global Training Round : 425 |
+
+
+Avg Training Stats after 425 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.92056 after 425 epochs
+
+test accuracy: 0.7646 after 425 epochs
+
+ 42%|███████████████▎                    | 425/1000 [1:03:11<1:38:44, 10.30s/it]
+ | Global Training Round : 426 |
+
+ 43%|███████████████▎                    | 426/1000 [1:03:18<1:29:28,  9.35s/it]
+ | Global Training Round : 427 |
+
+ 43%|███████████████▎                    | 427/1000 [1:03:25<1:22:55,  8.68s/it]
+ | Global Training Round : 428 |
+
+ 43%|███████████████▍                    | 428/1000 [1:03:33<1:18:18,  8.21s/it]
+ | Global Training Round : 429 |
+
+ 43%|███████████████▍                    | 429/1000 [1:03:40<1:14:56,  7.87s/it]
+ | Global Training Round : 430 |
+
+
+Avg Training Stats after 430 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.9203 after 430 epochs
+
+test accuracy: 0.7632 after 430 epochs
+
+ 43%|███████████████▍                    | 430/1000 [1:03:55<1:37:08, 10.23s/it]
+ | Global Training Round : 431 |
+
+ 43%|███████████████▌                    | 431/1000 [1:04:02<1:27:52,  9.27s/it]
+ | Global Training Round : 432 |
+
+ 43%|███████████████▌                    | 432/1000 [1:04:09<1:21:20,  8.59s/it]
+ | Global Training Round : 433 |
+
+ 43%|███████████████▌                    | 433/1000 [1:04:16<1:16:45,  8.12s/it]
+ | Global Training Round : 434 |
+
+ 43%|███████████████▌                    | 434/1000 [1:04:23<1:13:38,  7.81s/it]
+ | Global Training Round : 435 |
+
+
+Avg Training Stats after 435 global rounds:
+Train Accuracy: 88.00%
+
+test accuracy: 0.91788 after 435 epochs
+
+test accuracy: 0.7644 after 435 epochs
+
+ 44%|███████████████▋                    | 435/1000 [1:04:39<1:36:30, 10.25s/it]
+ | Global Training Round : 436 |
+
+ 44%|███████████████▋                    | 436/1000 [1:04:46<1:27:21,  9.29s/it]
+ | Global Training Round : 437 |
+
+ 44%|███████████████▋                    | 437/1000 [1:04:53<1:20:51,  8.62s/it]
+ | Global Training Round : 438 |
+
+ 44%|███████████████▊                    | 438/1000 [1:05:01<1:16:20,  8.15s/it]
+ | Global Training Round : 439 |
+
+ 44%|███████████████▊                    | 439/1000 [1:05:08<1:13:05,  7.82s/it]
+ | Global Training Round : 440 |
+
+
+Avg Training Stats after 440 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.9193 after 440 epochs
+
+test accuracy: 0.7663 after 440 epochs
+
+ 44%|███████████████▊                    | 440/1000 [1:05:23<1:35:01, 10.18s/it]
+ | Global Training Round : 441 |
+
+ 44%|███████████████▉                    | 441/1000 [1:05:30<1:26:07,  9.24s/it]
+ | Global Training Round : 442 |
+
+ 44%|███████████████▉                    | 442/1000 [1:05:37<1:19:58,  8.60s/it]
+ | Global Training Round : 443 |
+
+ 44%|███████████████▉                    | 443/1000 [1:05:45<1:15:43,  8.16s/it]
+ | Global Training Round : 444 |
+
+ 44%|███████████████▉                    | 444/1000 [1:05:52<1:12:49,  7.86s/it]
+ | Global Training Round : 445 |
+
+
+Avg Training Stats after 445 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.92096 after 445 epochs
+
+test accuracy: 0.7723 after 445 epochs
+
+ 44%|████████████████                    | 445/1000 [1:06:08<1:35:25, 10.32s/it]
+ | Global Training Round : 446 |
+
+ 45%|████████████████                    | 446/1000 [1:06:18<1:36:18, 10.43s/it]
+ | Global Training Round : 447 |
+
+ 45%|████████████████                    | 447/1000 [1:06:26<1:27:05,  9.45s/it]
+ | Global Training Round : 448 |
+
+ 45%|████████████████▏                   | 448/1000 [1:06:33<1:20:24,  8.74s/it]
+ | Global Training Round : 449 |
+
+ 45%|████████████████▏                   | 449/1000 [1:06:40<1:15:47,  8.25s/it]
+ | Global Training Round : 450 |
+
+
+Avg Training Stats after 450 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.91962 after 450 epochs
+
+test accuracy: 0.7655 after 450 epochs
+
+ 45%|████████████████▏                   | 450/1000 [1:06:56<1:36:41, 10.55s/it]
+ | Global Training Round : 451 |
+
+ 45%|████████████████▏                   | 451/1000 [1:07:03<1:27:06,  9.52s/it]
+ | Global Training Round : 452 |
+
+ 45%|████████████████▎                   | 452/1000 [1:07:10<1:20:17,  8.79s/it]
+ | Global Training Round : 453 |
+
+ 45%|████████████████▎                   | 453/1000 [1:07:17<1:15:31,  8.28s/it]
+ | Global Training Round : 454 |
+
+ 45%|████████████████▎                   | 454/1000 [1:07:24<1:12:10,  7.93s/it]
+ | Global Training Round : 455 |
+
+
+Avg Training Stats after 455 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.92034 after 455 epochs
+
+test accuracy: 0.7648 after 455 epochs
+
+ 46%|████████████████▍                   | 455/1000 [1:07:40<1:33:41, 10.32s/it]
+ | Global Training Round : 456 |
+
+ 46%|████████████████▍                   | 456/1000 [1:07:47<1:24:48,  9.35s/it]
+ | Global Training Round : 457 |
+
+ 46%|████████████████▍                   | 457/1000 [1:07:54<1:18:31,  8.68s/it]
+ | Global Training Round : 458 |
+
+ 46%|████████████████▍                   | 458/1000 [1:08:01<1:14:04,  8.20s/it]
+ | Global Training Round : 459 |
+
+ 46%|████████████████▌                   | 459/1000 [1:08:08<1:10:58,  7.87s/it]
+ | Global Training Round : 460 |
+
+
+Avg Training Stats after 460 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.92308 after 460 epochs
+
+test accuracy: 0.7707 after 460 epochs
+
+ 46%|████████████████▌                   | 460/1000 [1:08:24<1:32:29, 10.28s/it]
+ | Global Training Round : 461 |
+
+ 46%|████████████████▌                   | 461/1000 [1:08:31<1:23:47,  9.33s/it]
+ | Global Training Round : 462 |
+
+ 46%|████████████████▋                   | 462/1000 [1:08:39<1:17:37,  8.66s/it]
+ | Global Training Round : 463 |
+
+ 46%|████████████████▋                   | 463/1000 [1:08:46<1:13:17,  8.19s/it]
+ | Global Training Round : 464 |
+
+ 46%|████████████████▋                   | 464/1000 [1:08:53<1:10:13,  7.86s/it]
+ | Global Training Round : 465 |
+
+
+Avg Training Stats after 465 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.92186 after 465 epochs
+
+test accuracy: 0.768 after 465 epochs
+
+ 46%|████████████████▋                   | 465/1000 [1:09:09<1:31:30, 10.26s/it]
+ | Global Training Round : 466 |
+
+ 47%|████████████████▊                   | 466/1000 [1:09:16<1:22:56,  9.32s/it]
+ | Global Training Round : 467 |
+
+ 47%|████████████████▊                   | 467/1000 [1:09:23<1:16:52,  8.65s/it]
+ | Global Training Round : 468 |
+
+ 47%|████████████████▊                   | 468/1000 [1:09:30<1:12:35,  8.19s/it]
+ | Global Training Round : 469 |
+
+ 47%|████████████████▉                   | 469/1000 [1:09:37<1:09:34,  7.86s/it]
+ | Global Training Round : 470 |
+
+
+Avg Training Stats after 470 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.92666 after 470 epochs
+
+test accuracy: 0.7741 after 470 epochs
+
+ 47%|████████████████▉                   | 470/1000 [1:09:53<1:30:42, 10.27s/it]
+ | Global Training Round : 471 |
+
+ 47%|████████████████▉                   | 471/1000 [1:10:00<1:22:12,  9.32s/it]
+ | Global Training Round : 472 |
+
+ 47%|████████████████▉                   | 472/1000 [1:10:07<1:16:10,  8.66s/it]
+ | Global Training Round : 473 |
+
+ 47%|█████████████████                   | 473/1000 [1:10:14<1:11:55,  8.19s/it]
+ | Global Training Round : 474 |
+
+ 47%|█████████████████                   | 474/1000 [1:10:21<1:08:54,  7.86s/it]
+ | Global Training Round : 475 |
+
+
+Avg Training Stats after 475 global rounds:
+Train Accuracy: 88.00%
+
+test accuracy: 0.92574 after 475 epochs
+
+test accuracy: 0.7683 after 475 epochs
+
+ 48%|█████████████████                   | 475/1000 [1:10:37<1:29:48, 10.26s/it]
+ | Global Training Round : 476 |
+
+ 48%|█████████████████▏                  | 476/1000 [1:10:44<1:21:23,  9.32s/it]
+ | Global Training Round : 477 |
+
+ 48%|█████████████████▏                  | 477/1000 [1:10:51<1:15:25,  8.65s/it]
+ | Global Training Round : 478 |
+
+ 48%|█████████████████▏                  | 478/1000 [1:10:58<1:11:13,  8.19s/it]
+ | Global Training Round : 479 |
+
+ 48%|█████████████████▏                  | 479/1000 [1:11:06<1:08:15,  7.86s/it]
+ | Global Training Round : 480 |
+
+
+Avg Training Stats after 480 global rounds:
+Train Accuracy: 86.00%
+
+test accuracy: 0.925 after 480 epochs
+
+test accuracy: 0.767 after 480 epochs
+
+ 48%|█████████████████▎                  | 480/1000 [1:11:21<1:28:58, 10.27s/it]
+ | Global Training Round : 481 |
+
+ 48%|█████████████████▎                  | 481/1000 [1:11:29<1:20:37,  9.32s/it]
+ | Global Training Round : 482 |
+
+ 48%|█████████████████▎                  | 482/1000 [1:11:36<1:14:42,  8.65s/it]
+ | Global Training Round : 483 |
+
+ 48%|█████████████████▍                  | 483/1000 [1:11:43<1:10:33,  8.19s/it]
+ | Global Training Round : 484 |
+
+ 48%|█████████████████▍                  | 484/1000 [1:11:50<1:07:36,  7.86s/it]
+ | Global Training Round : 485 |
+
+
+Avg Training Stats after 485 global rounds:
+Train Accuracy: 64.00%
+
+test accuracy: 0.92844 after 485 epochs
+
+test accuracy: 0.773 after 485 epochs
+
+ 48%|█████████████████▍                  | 485/1000 [1:12:06<1:28:06, 10.27s/it]
+ | Global Training Round : 486 |
+
+ 49%|█████████████████▍                  | 486/1000 [1:12:13<1:19:50,  9.32s/it]
+ | Global Training Round : 487 |
+
+ 49%|█████████████████▌                  | 487/1000 [1:12:20<1:13:58,  8.65s/it]
+ | Global Training Round : 488 |
+
+ 49%|█████████████████▌                  | 488/1000 [1:12:27<1:09:51,  8.19s/it]
+ | Global Training Round : 489 |
+
+ 49%|█████████████████▌                  | 489/1000 [1:12:34<1:06:56,  7.86s/it]
+ | Global Training Round : 490 |
+
+
+Avg Training Stats after 490 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.92454 after 490 epochs
+
+test accuracy: 0.7689 after 490 epochs
+
+ 49%|█████████████████▋                  | 490/1000 [1:12:50<1:27:13, 10.26s/it]
+ | Global Training Round : 491 |
+
+ 49%|█████████████████▋                  | 491/1000 [1:12:57<1:19:03,  9.32s/it]
+ | Global Training Round : 492 |
+
+ 49%|█████████████████▋                  | 492/1000 [1:13:05<1:15:53,  8.96s/it]
+ | Global Training Round : 493 |
+
+ 49%|█████████████████▋                  | 493/1000 [1:13:13<1:11:22,  8.45s/it]
+ | Global Training Round : 494 |
+
+ 49%|█████████████████▊                  | 494/1000 [1:13:20<1:07:51,  8.05s/it]
+ | Global Training Round : 495 |
+
+
+Avg Training Stats after 495 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.92608 after 495 epochs
+
+test accuracy: 0.7697 after 495 epochs
+
+ 50%|█████████████████▊                  | 495/1000 [1:13:36<1:27:37, 10.41s/it]
+ | Global Training Round : 496 |
+
+ 50%|█████████████████▊                  | 496/1000 [1:13:43<1:19:09,  9.42s/it]
+ | Global Training Round : 497 |
+
+ 50%|█████████████████▉                  | 497/1000 [1:13:50<1:13:08,  8.72s/it]
+ | Global Training Round : 498 |
+
+ 50%|█████████████████▉                  | 498/1000 [1:13:57<1:08:53,  8.23s/it]
+ | Global Training Round : 499 |
+
+ 50%|█████████████████▉                  | 499/1000 [1:14:04<1:05:54,  7.89s/it]
+ | Global Training Round : 500 |
+
+
+Avg Training Stats after 500 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.92916 after 500 epochs
+
+test accuracy: 0.7701 after 500 epochs
+
+ 50%|██████████████████                  | 500/1000 [1:14:20<1:25:47, 10.30s/it]
+ | Global Training Round : 501 |
+
+ 50%|██████████████████                  | 501/1000 [1:14:27<1:17:41,  9.34s/it]
+ | Global Training Round : 502 |
+
+ 50%|██████████████████                  | 502/1000 [1:14:34<1:11:57,  8.67s/it]
+ | Global Training Round : 503 |
+
+ 50%|██████████████████                  | 503/1000 [1:14:41<1:07:59,  8.21s/it]
+ | Global Training Round : 504 |
+
+ 50%|██████████████████▏                 | 504/1000 [1:14:48<1:05:17,  7.90s/it]
+ | Global Training Round : 505 |
+
+
+Avg Training Stats after 505 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.9274 after 505 epochs
+
+test accuracy: 0.7671 after 505 epochs
+
+ 50%|██████████████████▏                 | 505/1000 [1:15:04<1:25:20, 10.34s/it]
+ | Global Training Round : 506 |
+
+ 51%|██████████████████▏                 | 506/1000 [1:15:12<1:17:23,  9.40s/it]
+ | Global Training Round : 507 |
+
+ 51%|██████████████████▎                 | 507/1000 [1:15:19<1:11:46,  8.73s/it]
+ | Global Training Round : 508 |
+
+ 51%|██████████████████▎                 | 508/1000 [1:15:26<1:07:49,  8.27s/it]
+ | Global Training Round : 509 |
+
+ 51%|██████████████████▎                 | 509/1000 [1:15:33<1:05:03,  7.95s/it]
+ | Global Training Round : 510 |
+
+
+Avg Training Stats after 510 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.92754 after 510 epochs
+
+test accuracy: 0.7696 after 510 epochs
+
+ 51%|██████████████████▎                 | 510/1000 [1:15:49<1:24:53, 10.39s/it]
+ | Global Training Round : 511 |
+
+ 51%|██████████████████▍                 | 511/1000 [1:15:57<1:16:57,  9.44s/it]
+ | Global Training Round : 512 |
+
+ 51%|██████████████████▍                 | 512/1000 [1:16:04<1:11:18,  8.77s/it]
+ | Global Training Round : 513 |
+
+ 51%|██████████████████▍                 | 513/1000 [1:16:11<1:07:19,  8.29s/it]
+ | Global Training Round : 514 |
+
+ 51%|██████████████████▌                 | 514/1000 [1:16:18<1:04:29,  7.96s/it]
+ | Global Training Round : 515 |
+
+
+Avg Training Stats after 515 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.9295 after 515 epochs
+
+test accuracy: 0.7732 after 515 epochs
+
+ 52%|██████████████████▌                 | 515/1000 [1:16:34<1:23:27, 10.33s/it]
+ | Global Training Round : 516 |
+
+ 52%|██████████████████▌                 | 516/1000 [1:16:41<1:15:23,  9.35s/it]
+ | Global Training Round : 517 |
+
+ 52%|██████████████████▌                 | 517/1000 [1:16:48<1:09:42,  8.66s/it]
+ | Global Training Round : 518 |
+
+ 52%|██████████████████▋                 | 518/1000 [1:16:55<1:05:39,  8.17s/it]
+ | Global Training Round : 519 |
+
+ 52%|██████████████████▋                 | 519/1000 [1:17:02<1:02:49,  7.84s/it]
+ | Global Training Round : 520 |
+
+
+Avg Training Stats after 520 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.93104 after 520 epochs
+
+test accuracy: 0.7748 after 520 epochs
+
+ 52%|██████████████████▋                 | 520/1000 [1:17:18<1:21:37, 10.20s/it]
+ | Global Training Round : 521 |
+
+ 52%|██████████████████▊                 | 521/1000 [1:17:25<1:14:16,  9.30s/it]
+ | Global Training Round : 522 |
+
+ 52%|██████████████████▊                 | 522/1000 [1:17:32<1:09:03,  8.67s/it]
+ | Global Training Round : 523 |
+
+ 52%|██████████████████▊                 | 523/1000 [1:17:39<1:05:22,  8.22s/it]
+ | Global Training Round : 524 |
+
+ 52%|██████████████████▊                 | 524/1000 [1:17:47<1:02:40,  7.90s/it]
+ | Global Training Round : 525 |
+
+
+Avg Training Stats after 525 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.9304 after 525 epochs
+
+test accuracy: 0.7724 after 525 epochs
+
+ 52%|██████████████████▉                 | 525/1000 [1:18:03<1:21:32, 10.30s/it]
+ | Global Training Round : 526 |
+
+ 53%|██████████████████▉                 | 526/1000 [1:18:10<1:13:49,  9.35s/it]
+ | Global Training Round : 527 |
+
+ 53%|██████████████████▉                 | 527/1000 [1:18:17<1:08:24,  8.68s/it]
+ | Global Training Round : 528 |
+
+ 53%|███████████████████                 | 528/1000 [1:18:24<1:04:38,  8.22s/it]
+ | Global Training Round : 529 |
+
+ 53%|███████████████████                 | 529/1000 [1:18:31<1:01:59,  7.90s/it]
+ | Global Training Round : 530 |
+
+
+Avg Training Stats after 530 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93192 after 530 epochs
+
+test accuracy: 0.7697 after 530 epochs
+
+ 53%|███████████████████                 | 530/1000 [1:18:47<1:21:28, 10.40s/it]
+ | Global Training Round : 531 |
+
+ 53%|███████████████████                 | 531/1000 [1:18:54<1:13:49,  9.44s/it]
+ | Global Training Round : 532 |
+
+ 53%|███████████████████▏                | 532/1000 [1:19:02<1:08:25,  8.77s/it]
+ | Global Training Round : 533 |
+
+ 53%|███████████████████▏                | 533/1000 [1:19:09<1:04:33,  8.29s/it]
+ | Global Training Round : 534 |
+
+ 53%|███████████████████▏                | 534/1000 [1:19:16<1:01:48,  7.96s/it]
+ | Global Training Round : 535 |
+
+
+Avg Training Stats after 535 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93302 after 535 epochs
+
+test accuracy: 0.7707 after 535 epochs
+
+ 54%|███████████████████▎                | 535/1000 [1:19:32<1:20:30, 10.39s/it]
+ | Global Training Round : 536 |
+
+ 54%|███████████████████▎                | 536/1000 [1:19:39<1:12:45,  9.41s/it]
+ | Global Training Round : 537 |
+
+ 54%|███████████████████▎                | 537/1000 [1:19:46<1:07:17,  8.72s/it]
+ | Global Training Round : 538 |
+
+ 54%|███████████████████▎                | 538/1000 [1:19:53<1:03:26,  8.24s/it]
+ | Global Training Round : 539 |
+
+ 54%|███████████████████▍                | 539/1000 [1:20:01<1:02:45,  8.17s/it]
+ | Global Training Round : 540 |
+
+
+Avg Training Stats after 540 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.93286 after 540 epochs
+
+test accuracy: 0.7715 after 540 epochs
+
+ 54%|███████████████████▍                | 540/1000 [1:20:18<1:21:04, 10.57s/it]
+ | Global Training Round : 541 |
+
+ 54%|███████████████████▍                | 541/1000 [1:20:25<1:12:59,  9.54s/it]
+ | Global Training Round : 542 |
+
+ 54%|███████████████████▌                | 542/1000 [1:20:32<1:07:16,  8.81s/it]
+ | Global Training Round : 543 |
+
+ 54%|███████████████████▌                | 543/1000 [1:20:39<1:03:15,  8.30s/it]
+ | Global Training Round : 544 |
+
+ 54%|███████████████████▌                | 544/1000 [1:20:46<1:00:24,  7.95s/it]
+ | Global Training Round : 545 |
+
+
+Avg Training Stats after 545 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.9308 after 545 epochs
+
+test accuracy: 0.7676 after 545 epochs
+
+ 55%|███████████████████▌                | 545/1000 [1:21:02<1:18:23, 10.34s/it]
+ | Global Training Round : 546 |
+
+ 55%|███████████████████▋                | 546/1000 [1:21:09<1:10:58,  9.38s/it]
+ | Global Training Round : 547 |
+
+ 55%|███████████████████▋                | 547/1000 [1:21:16<1:05:41,  8.70s/it]
+ | Global Training Round : 548 |
+
+ 55%|███████████████████▋                | 548/1000 [1:21:23<1:01:58,  8.23s/it]
+ | Global Training Round : 549 |
+
+ 55%|████████████████████▊                 | 549/1000 [1:21:31<59:20,  7.89s/it]
+ | Global Training Round : 550 |
+
+
+Avg Training Stats after 550 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.93432 after 550 epochs
+
+test accuracy: 0.7716 after 550 epochs
+
+ 55%|███████████████████▊                | 550/1000 [1:21:46<1:17:19, 10.31s/it]
+ | Global Training Round : 551 |
+
+ 55%|███████████████████▊                | 551/1000 [1:21:54<1:10:01,  9.36s/it]
+ | Global Training Round : 552 |
+
+ 55%|███████████████████▊                | 552/1000 [1:22:01<1:04:49,  8.68s/it]
+ | Global Training Round : 553 |
+
+ 55%|███████████████████▉                | 553/1000 [1:22:08<1:01:11,  8.21s/it]
+ | Global Training Round : 554 |
+
+ 55%|█████████████████████                 | 554/1000 [1:22:15<58:36,  7.88s/it]
+ | Global Training Round : 555 |
+
+
+Avg Training Stats after 555 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.93428 after 555 epochs
+
+test accuracy: 0.7702 after 555 epochs
+
+ 56%|███████████████████▉                | 555/1000 [1:22:31<1:16:14, 10.28s/it]
+ | Global Training Round : 556 |
+
+ 56%|████████████████████                | 556/1000 [1:22:38<1:09:03,  9.33s/it]
+ | Global Training Round : 557 |
+
+ 56%|████████████████████                | 557/1000 [1:22:45<1:03:58,  8.66s/it]
+ | Global Training Round : 558 |
+
+ 56%|████████████████████                | 558/1000 [1:22:52<1:00:26,  8.20s/it]
+ | Global Training Round : 559 |
+
+ 56%|█████████████████████▏                | 559/1000 [1:22:59<57:56,  7.88s/it]
+ | Global Training Round : 560 |
+
+
+Avg Training Stats after 560 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.93132 after 560 epochs
+
+test accuracy: 0.7685 after 560 epochs
+
+ 56%|████████████████████▏               | 560/1000 [1:23:15<1:15:33, 10.30s/it]
+ | Global Training Round : 561 |
+
+ 56%|████████████████████▏               | 561/1000 [1:23:22<1:08:26,  9.35s/it]
+ | Global Training Round : 562 |
+
+ 56%|████████████████████▏               | 562/1000 [1:23:30<1:03:24,  8.69s/it]
+ | Global Training Round : 563 |
+
+ 56%|█████████████████████▍                | 563/1000 [1:23:37<59:51,  8.22s/it]
+ | Global Training Round : 564 |
+
+ 56%|█████████████████████▍                | 564/1000 [1:23:44<57:22,  7.90s/it]
+ | Global Training Round : 565 |
+
+
+Avg Training Stats after 565 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.93234 after 565 epochs
+
+test accuracy: 0.7707 after 565 epochs
+
+ 56%|████████████████████▎               | 565/1000 [1:24:00<1:14:46, 10.31s/it]
+ | Global Training Round : 566 |
+
+ 57%|████████████████████▍               | 566/1000 [1:24:07<1:07:42,  9.36s/it]
+ | Global Training Round : 567 |
+
+ 57%|████████████████████▍               | 567/1000 [1:24:14<1:02:44,  8.69s/it]
+ | Global Training Round : 568 |
+
+ 57%|█████████████████████▌                | 568/1000 [1:24:21<59:16,  8.23s/it]
+ | Global Training Round : 569 |
+
+ 57%|█████████████████████▌                | 569/1000 [1:24:28<56:50,  7.91s/it]
+ | Global Training Round : 570 |
+
+
+Avg Training Stats after 570 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.93384 after 570 epochs
+
+test accuracy: 0.7717 after 570 epochs
+
+ 57%|████████████████████▌               | 570/1000 [1:24:44<1:14:17, 10.37s/it]
+ | Global Training Round : 571 |
+
+ 57%|████████████████████▌               | 571/1000 [1:24:52<1:07:01,  9.38s/it]
+ | Global Training Round : 572 |
+
+ 57%|████████████████████▌               | 572/1000 [1:24:59<1:01:57,  8.69s/it]
+ | Global Training Round : 573 |
+
+ 57%|█████████████████████▊                | 573/1000 [1:25:06<58:46,  8.26s/it]
+ | Global Training Round : 574 |
+
+ 57%|█████████████████████▊                | 574/1000 [1:25:13<56:02,  7.89s/it]
+ | Global Training Round : 575 |
+
+
+Avg Training Stats after 575 global rounds:
+Train Accuracy: 88.00%
+
+test accuracy: 0.93246 after 575 epochs
+
+test accuracy: 0.7698 after 575 epochs
+
+ 57%|████████████████████▋               | 575/1000 [1:25:29<1:12:31, 10.24s/it]
+ | Global Training Round : 576 |
+
+ 58%|████████████████████▋               | 576/1000 [1:25:36<1:05:51,  9.32s/it]
+ | Global Training Round : 577 |
+
+ 58%|████████████████████▊               | 577/1000 [1:25:43<1:01:00,  8.65s/it]
+ | Global Training Round : 578 |
+
+ 58%|█████████████████████▉                | 578/1000 [1:25:50<57:28,  8.17s/it]
+ | Global Training Round : 579 |
+
+ 58%|██████████████████████                | 579/1000 [1:25:57<55:09,  7.86s/it]
+ | Global Training Round : 580 |
+
+
+Avg Training Stats after 580 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.93338 after 580 epochs
+
+test accuracy: 0.7725 after 580 epochs
+
+ 58%|████████████████████▉               | 580/1000 [1:26:13<1:12:12, 10.32s/it]
+ | Global Training Round : 581 |
+
+ 58%|████████████████████▉               | 581/1000 [1:26:20<1:05:28,  9.38s/it]
+ | Global Training Round : 582 |
+
+ 58%|████████████████████▉               | 582/1000 [1:26:27<1:00:42,  8.71s/it]
+ | Global Training Round : 583 |
+
+ 58%|██████████████████████▏               | 583/1000 [1:26:35<57:19,  8.25s/it]
+ | Global Training Round : 584 |
+
+ 58%|██████████████████████▏               | 584/1000 [1:26:42<54:55,  7.92s/it]
+ | Global Training Round : 585 |
+
+
+Avg Training Stats after 585 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93202 after 585 epochs
+
+test accuracy: 0.7694 after 585 epochs
+
+ 58%|█████████████████████               | 585/1000 [1:26:58<1:11:59, 10.41s/it]
+ | Global Training Round : 586 |
+
+ 59%|█████████████████████               | 586/1000 [1:27:09<1:12:48, 10.55s/it]
+ | Global Training Round : 587 |
+
+ 59%|█████████████████████▏              | 587/1000 [1:27:16<1:05:49,  9.56s/it]
+ | Global Training Round : 588 |
+
+ 59%|█████████████████████▏              | 588/1000 [1:27:23<1:00:43,  8.84s/it]
+ | Global Training Round : 589 |
+
+ 59%|██████████████████████▍               | 589/1000 [1:27:30<57:04,  8.33s/it]
+ | Global Training Round : 590 |
+
+
+Avg Training Stats after 590 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.9343 after 590 epochs
+
+test accuracy: 0.7697 after 590 epochs
+
+ 59%|█████████████████████▏              | 590/1000 [1:27:46<1:12:12, 10.57s/it]
+ | Global Training Round : 591 |
+
+ 59%|█████████████████████▎              | 591/1000 [1:27:53<1:04:51,  9.52s/it]
+ | Global Training Round : 592 |
+
+ 59%|██████████████████████▍               | 592/1000 [1:28:00<59:41,  8.78s/it]
+ | Global Training Round : 593 |
+
+ 59%|██████████████████████▌               | 593/1000 [1:28:07<56:07,  8.27s/it]
+ | Global Training Round : 594 |
+
+ 59%|██████████████████████▌               | 594/1000 [1:28:15<53:35,  7.92s/it]
+ | Global Training Round : 595 |
+
+
+Avg Training Stats after 595 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.93218 after 595 epochs
+
+test accuracy: 0.7747 after 595 epochs
+
+ 60%|█████████████████████▍              | 595/1000 [1:28:30<1:09:35, 10.31s/it]
+ | Global Training Round : 596 |
+
+ 60%|█████████████████████▍              | 596/1000 [1:28:38<1:02:57,  9.35s/it]
+ | Global Training Round : 597 |
+
+ 60%|██████████████████████▋               | 597/1000 [1:28:45<58:14,  8.67s/it]
+ | Global Training Round : 598 |
+
+ 60%|██████████████████████▋               | 598/1000 [1:28:52<54:56,  8.20s/it]
+ | Global Training Round : 599 |
+
+ 60%|██████████████████████▊               | 599/1000 [1:28:59<52:36,  7.87s/it]
+ | Global Training Round : 600 |
+
+
+Avg Training Stats after 600 global rounds:
+Train Accuracy: 86.00%
+
+test accuracy: 0.93304 after 600 epochs
+
+test accuracy: 0.7678 after 600 epochs
+
+ 60%|█████████████████████▌              | 600/1000 [1:29:15<1:08:35, 10.29s/it]
+ | Global Training Round : 601 |
+
+ 60%|█████████████████████▋              | 601/1000 [1:29:22<1:02:06,  9.34s/it]
+ | Global Training Round : 602 |
+
+ 60%|██████████████████████▉               | 602/1000 [1:29:29<57:30,  8.67s/it]
+ | Global Training Round : 603 |
+
+ 60%|██████████████████████▉               | 603/1000 [1:29:36<54:18,  8.21s/it]
+ | Global Training Round : 604 |
+
+ 60%|██████████████████████▉               | 604/1000 [1:29:43<52:01,  7.88s/it]
+ | Global Training Round : 605 |
+
+
+Avg Training Stats after 605 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.9347 after 605 epochs
+
+test accuracy: 0.7715 after 605 epochs
+
+ 60%|█████████████████████▊              | 605/1000 [1:29:59<1:07:47, 10.30s/it]
+ | Global Training Round : 606 |
+
+ 61%|█████████████████████▊              | 606/1000 [1:30:06<1:01:21,  9.34s/it]
+ | Global Training Round : 607 |
+
+ 61%|███████████████████████               | 607/1000 [1:30:13<56:48,  8.67s/it]
+ | Global Training Round : 608 |
+
+ 61%|███████████████████████               | 608/1000 [1:30:21<53:35,  8.20s/it]
+ | Global Training Round : 609 |
+
+ 61%|███████████████████████▏              | 609/1000 [1:30:28<51:17,  7.87s/it]
+ | Global Training Round : 610 |
+
+
+Avg Training Stats after 610 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.93638 after 610 epochs
+
+test accuracy: 0.7695 after 610 epochs
+
+ 61%|█████████████████████▉              | 610/1000 [1:30:43<1:06:43, 10.26s/it]
+ | Global Training Round : 611 |
+
+ 61%|█████████████████████▉              | 611/1000 [1:30:51<1:00:24,  9.32s/it]
+ | Global Training Round : 612 |
+
+ 61%|███████████████████████▎              | 612/1000 [1:30:58<55:57,  8.65s/it]
+ | Global Training Round : 613 |
+
+ 61%|███████████████████████▎              | 613/1000 [1:31:05<52:48,  8.19s/it]
+ | Global Training Round : 614 |
+
+ 61%|███████████████████████▎              | 614/1000 [1:31:12<50:38,  7.87s/it]
+ | Global Training Round : 615 |
+
+
+Avg Training Stats after 615 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.9333 after 615 epochs
+
+test accuracy: 0.7698 after 615 epochs
+
+ 62%|██████████████████████▏             | 615/1000 [1:31:28<1:05:55, 10.27s/it]
+ | Global Training Round : 616 |
+
+ 62%|███████████████████████▍              | 616/1000 [1:31:35<59:31,  9.30s/it]
+ | Global Training Round : 617 |
+
+ 62%|███████████████████████▍              | 617/1000 [1:31:42<55:00,  8.62s/it]
+ | Global Training Round : 618 |
+
+ 62%|███████████████████████▍              | 618/1000 [1:31:49<51:49,  8.14s/it]
+ | Global Training Round : 619 |
+
+ 62%|███████████████████████▌              | 619/1000 [1:31:56<49:32,  7.80s/it]
+ | Global Training Round : 620 |
+
+
+Avg Training Stats after 620 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.93642 after 620 epochs
+
+test accuracy: 0.7711 after 620 epochs
+
+ 62%|██████████████████████▎             | 620/1000 [1:32:12<1:04:21, 10.16s/it]
+ | Global Training Round : 621 |
+
+ 62%|███████████████████████▌              | 621/1000 [1:32:19<58:18,  9.23s/it]
+ | Global Training Round : 622 |
+
+ 62%|███████████████████████▋              | 622/1000 [1:32:26<54:00,  8.57s/it]
+ | Global Training Round : 623 |
+
+ 62%|███████████████████████▋              | 623/1000 [1:32:33<50:58,  8.11s/it]
+ | Global Training Round : 624 |
+
+ 62%|███████████████████████▋              | 624/1000 [1:32:40<48:49,  7.79s/it]
+ | Global Training Round : 625 |
+
+
+Avg Training Stats after 625 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93558 after 625 epochs
+
+test accuracy: 0.7715 after 625 epochs
+
+ 62%|██████████████████████▌             | 625/1000 [1:32:55<1:03:31, 10.16s/it]
+ | Global Training Round : 626 |
+
+ 63%|███████████████████████▊              | 626/1000 [1:33:02<57:30,  9.23s/it]
+ | Global Training Round : 627 |
+
+ 63%|███████████████████████▊              | 627/1000 [1:33:09<53:15,  8.57s/it]
+ | Global Training Round : 628 |
+
+ 63%|███████████████████████▊              | 628/1000 [1:33:17<50:14,  8.10s/it]
+ | Global Training Round : 629 |
+
+ 63%|███████████████████████▉              | 629/1000 [1:33:24<48:07,  7.78s/it]
+ | Global Training Round : 630 |
+
+
+Avg Training Stats after 630 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.93856 after 630 epochs
+
+test accuracy: 0.7731 after 630 epochs
+
+ 63%|██████████████████████▋             | 630/1000 [1:33:39<1:02:40, 10.16s/it]
+ | Global Training Round : 631 |
+
+ 63%|███████████████████████▉              | 631/1000 [1:33:46<56:45,  9.23s/it]
+ | Global Training Round : 632 |
+
+ 63%|████████████████████████              | 632/1000 [1:33:53<52:33,  8.57s/it]
+ | Global Training Round : 633 |
+
+ 63%|████████████████████████              | 633/1000 [1:34:00<49:35,  8.11s/it]
+ | Global Training Round : 634 |
+
+ 63%|████████████████████████              | 634/1000 [1:34:07<47:37,  7.81s/it]
+ | Global Training Round : 635 |
+
+
+Avg Training Stats after 635 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93754 after 635 epochs
+
+test accuracy: 0.7723 after 635 epochs
+
+ 64%|██████████████████████▊             | 635/1000 [1:34:23<1:02:01, 10.19s/it]
+ | Global Training Round : 636 |
+
+ 64%|████████████████████████▏             | 636/1000 [1:34:30<56:10,  9.26s/it]
+ | Global Training Round : 637 |
+
+ 64%|████████████████████████▏             | 637/1000 [1:34:37<52:00,  8.60s/it]
+ | Global Training Round : 638 |
+
+ 64%|████████████████████████▏             | 638/1000 [1:34:49<57:22,  9.51s/it]
+ | Global Training Round : 639 |
+
+ 64%|████████████████████████▎             | 639/1000 [1:34:56<53:00,  8.81s/it]
+ | Global Training Round : 640 |
+
+
+Avg Training Stats after 640 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93682 after 640 epochs
+
+test accuracy: 0.7727 after 640 epochs
+
+ 64%|███████████████████████             | 640/1000 [1:35:12<1:05:26, 10.91s/it]
+ | Global Training Round : 641 |
+
+ 64%|████████████████████████▎             | 641/1000 [1:35:19<58:20,  9.75s/it]
+ | Global Training Round : 642 |
+
+ 64%|████████████████████████▍             | 642/1000 [1:35:26<53:17,  8.93s/it]
+ | Global Training Round : 643 |
+
+ 64%|████████████████████████▍             | 643/1000 [1:35:33<49:45,  8.36s/it]
+ | Global Training Round : 644 |
+
+ 64%|████████████████████████▍             | 644/1000 [1:35:40<47:16,  7.97s/it]
+ | Global Training Round : 645 |
+
+
+Avg Training Stats after 645 global rounds:
+Train Accuracy: 62.00%
+
+test accuracy: 0.94002 after 645 epochs
+
+test accuracy: 0.7724 after 645 epochs
+
+ 64%|███████████████████████▏            | 645/1000 [1:35:56<1:01:32, 10.40s/it]
+ | Global Training Round : 646 |
+
+ 65%|████████████████████████▌             | 646/1000 [1:36:03<55:45,  9.45s/it]
+ | Global Training Round : 647 |
+
+ 65%|████████████████████████▌             | 647/1000 [1:36:11<51:42,  8.79s/it]
+ | Global Training Round : 648 |
+
+ 65%|████████████████████████▌             | 648/1000 [1:36:18<48:48,  8.32s/it]
+ | Global Training Round : 649 |
+
+ 65%|████████████████████████▋             | 649/1000 [1:36:25<46:29,  7.95s/it]
+ | Global Training Round : 650 |
+
+
+Avg Training Stats after 650 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93904 after 650 epochs
+
+test accuracy: 0.7723 after 650 epochs
+
+ 65%|███████████████████████▍            | 650/1000 [1:36:41<1:00:00, 10.29s/it]
+ | Global Training Round : 651 |
+
+ 65%|████████████████████████▋             | 651/1000 [1:36:48<54:11,  9.32s/it]
+ | Global Training Round : 652 |
+
+ 65%|████████████████████████▊             | 652/1000 [1:36:55<50:04,  8.63s/it]
+ | Global Training Round : 653 |
+
+ 65%|████████████████████████▊             | 653/1000 [1:37:02<47:09,  8.15s/it]
+ | Global Training Round : 654 |
+
+ 65%|████████████████████████▊             | 654/1000 [1:37:09<45:05,  7.82s/it]
+ | Global Training Round : 655 |
+
+
+Avg Training Stats after 655 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.9412 after 655 epochs
+
+test accuracy: 0.7736 after 655 epochs
+
+ 66%|████████████████████████▉             | 655/1000 [1:37:25<58:35, 10.19s/it]
+ | Global Training Round : 656 |
+
+ 66%|████████████████████████▉             | 656/1000 [1:37:32<53:00,  9.25s/it]
+ | Global Training Round : 657 |
+
+ 66%|████████████████████████▉             | 657/1000 [1:37:39<49:04,  8.58s/it]
+ | Global Training Round : 658 |
+
+ 66%|█████████████████████████             | 658/1000 [1:37:46<46:17,  8.12s/it]
+ | Global Training Round : 659 |
+
+ 66%|█████████████████████████             | 659/1000 [1:37:53<44:19,  7.80s/it]
+ | Global Training Round : 660 |
+
+
+Avg Training Stats after 660 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.94024 after 660 epochs
+
+test accuracy: 0.7729 after 660 epochs
+
+ 66%|█████████████████████████             | 660/1000 [1:38:09<57:47, 10.20s/it]
+ | Global Training Round : 661 |
+
+ 66%|█████████████████████████             | 661/1000 [1:38:16<52:18,  9.26s/it]
+ | Global Training Round : 662 |
+
+ 66%|█████████████████████████▏            | 662/1000 [1:38:23<48:23,  8.59s/it]
+ | Global Training Round : 663 |
+
+ 66%|█████████████████████████▏            | 663/1000 [1:38:30<45:39,  8.13s/it]
+ | Global Training Round : 664 |
+
+ 66%|█████████████████████████▏            | 664/1000 [1:38:37<43:42,  7.80s/it]
+ | Global Training Round : 665 |
+
+
+Avg Training Stats after 665 global rounds:
+Train Accuracy: 66.00%
+
+test accuracy: 0.93982 after 665 epochs
+
+test accuracy: 0.7764 after 665 epochs
+
+ 66%|█████████████████████████▎            | 665/1000 [1:38:53<56:51, 10.18s/it]
+ | Global Training Round : 666 |
+
+ 67%|█████████████████████████▎            | 666/1000 [1:39:00<51:27,  9.24s/it]
+ | Global Training Round : 667 |
+
+ 67%|█████████████████████████▎            | 667/1000 [1:39:07<47:38,  8.59s/it]
+ | Global Training Round : 668 |
+
+ 67%|█████████████████████████▍            | 668/1000 [1:39:14<44:57,  8.13s/it]
+ | Global Training Round : 669 |
+
+ 67%|█████████████████████████▍            | 669/1000 [1:39:21<43:10,  7.83s/it]
+ | Global Training Round : 670 |
+
+
+Avg Training Stats after 670 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.9392 after 670 epochs
+
+test accuracy: 0.7712 after 670 epochs
+
+ 67%|█████████████████████████▍            | 670/1000 [1:39:37<56:38, 10.30s/it]
+ | Global Training Round : 671 |
+
+ 67%|█████████████████████████▍            | 671/1000 [1:39:44<51:21,  9.37s/it]
+ | Global Training Round : 672 |
+
+ 67%|█████████████████████████▌            | 672/1000 [1:39:51<47:36,  8.71s/it]
+ | Global Training Round : 673 |
+
+ 67%|█████████████████████████▌            | 673/1000 [1:39:58<44:57,  8.25s/it]
+ | Global Training Round : 674 |
+
+ 67%|█████████████████████████▌            | 674/1000 [1:40:06<43:03,  7.92s/it]
+ | Global Training Round : 675 |
+
+
+Avg Training Stats after 675 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.93798 after 675 epochs
+
+test accuracy: 0.7727 after 675 epochs
+
+ 68%|█████████████████████████▋            | 675/1000 [1:40:22<56:05, 10.36s/it]
+ | Global Training Round : 676 |
+
+ 68%|█████████████████████████▋            | 676/1000 [1:40:29<50:47,  9.41s/it]
+ | Global Training Round : 677 |
+
+ 68%|█████████████████████████▋            | 677/1000 [1:40:36<47:02,  8.74s/it]
+ | Global Training Round : 678 |
+
+ 68%|█████████████████████████▊            | 678/1000 [1:40:43<44:22,  8.27s/it]
+ | Global Training Round : 679 |
+
+ 68%|█████████████████████████▊            | 679/1000 [1:40:50<42:28,  7.94s/it]
+ | Global Training Round : 680 |
+
+
+Avg Training Stats after 680 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.93996 after 680 epochs
+
+test accuracy: 0.7745 after 680 epochs
+
+ 68%|█████████████████████████▊            | 680/1000 [1:41:06<55:15, 10.36s/it]
+ | Global Training Round : 681 |
+
+ 68%|█████████████████████████▉            | 681/1000 [1:41:14<50:00,  9.41s/it]
+ | Global Training Round : 682 |
+
+ 68%|█████████████████████████▉            | 682/1000 [1:41:21<46:17,  8.73s/it]
+ | Global Training Round : 683 |
+
+ 68%|█████████████████████████▉            | 683/1000 [1:41:28<43:39,  8.26s/it]
+ | Global Training Round : 684 |
+
+ 68%|█████████████████████████▉            | 684/1000 [1:41:35<41:48,  7.94s/it]
+ | Global Training Round : 685 |
+
+
+Avg Training Stats after 685 global rounds:
+Train Accuracy: 58.00%
+
+test accuracy: 0.93958 after 685 epochs
+
+test accuracy: 0.7736 after 685 epochs
+
+ 68%|██████████████████████████            | 685/1000 [1:41:52<55:14, 10.52s/it]
+ | Global Training Round : 686 |
+
+ 69%|██████████████████████████            | 686/1000 [1:42:00<51:54,  9.92s/it]
+ | Global Training Round : 687 |
+
+ 69%|██████████████████████████            | 687/1000 [1:42:07<47:27,  9.10s/it]
+ | Global Training Round : 688 |
+
+ 69%|██████████████████████████▏           | 688/1000 [1:42:14<44:18,  8.52s/it]
+ | Global Training Round : 689 |
+
+ 69%|██████████████████████████▏           | 689/1000 [1:42:22<42:07,  8.13s/it]
+ | Global Training Round : 690 |
+
+
+Avg Training Stats after 690 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.94048 after 690 epochs
+
+test accuracy: 0.7724 after 690 epochs
+
+ 69%|██████████████████████████▏           | 690/1000 [1:42:38<54:09, 10.48s/it]
+ | Global Training Round : 691 |
+
+ 69%|██████████████████████████▎           | 691/1000 [1:42:45<48:48,  9.48s/it]
+ | Global Training Round : 692 |
+
+ 69%|██████████████████████████▎           | 692/1000 [1:42:52<45:01,  8.77s/it]
+ | Global Training Round : 693 |
+
+ 69%|██████████████████████████▎           | 693/1000 [1:42:59<42:20,  8.27s/it]
+ | Global Training Round : 694 |
+
+ 69%|██████████████████████████▎           | 694/1000 [1:43:06<40:25,  7.93s/it]
+ | Global Training Round : 695 |
+
+
+Avg Training Stats after 695 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.93834 after 695 epochs
+
+test accuracy: 0.7692 after 695 epochs
+
+ 70%|██████████████████████████▍           | 695/1000 [1:43:22<52:31, 10.33s/it]
+ | Global Training Round : 696 |
+
+ 70%|██████████████████████████▍           | 696/1000 [1:43:29<47:29,  9.37s/it]
+ | Global Training Round : 697 |
+
+ 70%|██████████████████████████▍           | 697/1000 [1:43:36<43:54,  8.69s/it]
+ | Global Training Round : 698 |
+
+ 70%|██████████████████████████▌           | 698/1000 [1:43:43<41:23,  8.22s/it]
+ | Global Training Round : 699 |
+
+ 70%|██████████████████████████▌           | 699/1000 [1:43:51<39:36,  7.89s/it]
+ | Global Training Round : 700 |
+
+
+Avg Training Stats after 700 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94 after 700 epochs
+
+test accuracy: 0.7725 after 700 epochs
+
+ 70%|██████████████████████████▌           | 700/1000 [1:44:06<51:29, 10.30s/it]
+ | Global Training Round : 701 |
+
+ 70%|██████████████████████████▋           | 701/1000 [1:44:14<46:35,  9.35s/it]
+ | Global Training Round : 702 |
+
+ 70%|██████████████████████████▋           | 702/1000 [1:44:21<43:06,  8.68s/it]
+ | Global Training Round : 703 |
+
+ 70%|██████████████████████████▋           | 703/1000 [1:44:28<40:39,  8.21s/it]
+ | Global Training Round : 704 |
+
+ 70%|██████████████████████████▊           | 704/1000 [1:44:35<38:53,  7.88s/it]
+ | Global Training Round : 705 |
+
+
+Avg Training Stats after 705 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.94078 after 705 epochs
+
+test accuracy: 0.7745 after 705 epochs
+
+ 70%|██████████████████████████▊           | 705/1000 [1:44:51<50:38, 10.30s/it]
+ | Global Training Round : 706 |
+
+ 71%|██████████████████████████▊           | 706/1000 [1:44:58<45:48,  9.35s/it]
+ | Global Training Round : 707 |
+
+ 71%|██████████████████████████▊           | 707/1000 [1:45:05<42:26,  8.69s/it]
+ | Global Training Round : 708 |
+
+ 71%|██████████████████████████▉           | 708/1000 [1:45:12<40:00,  8.22s/it]
+ | Global Training Round : 709 |
+
+ 71%|██████████████████████████▉           | 709/1000 [1:45:19<38:16,  7.89s/it]
+ | Global Training Round : 710 |
+
+
+Avg Training Stats after 710 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.93826 after 710 epochs
+
+test accuracy: 0.7724 after 710 epochs
+
+ 71%|██████████████████████████▉           | 710/1000 [1:45:35<49:47, 10.30s/it]
+ | Global Training Round : 711 |
+
+ 71%|███████████████████████████           | 711/1000 [1:45:43<45:02,  9.35s/it]
+ | Global Training Round : 712 |
+
+ 71%|███████████████████████████           | 712/1000 [1:45:50<41:40,  8.68s/it]
+ | Global Training Round : 713 |
+
+ 71%|███████████████████████████           | 713/1000 [1:45:57<39:17,  8.21s/it]
+ | Global Training Round : 714 |
+
+ 71%|███████████████████████████▏          | 714/1000 [1:46:04<37:35,  7.89s/it]
+ | Global Training Round : 715 |
+
+
+Avg Training Stats after 715 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94084 after 715 epochs
+
+test accuracy: 0.7699 after 715 epochs
+
+ 72%|███████████████████████████▏          | 715/1000 [1:46:20<48:54, 10.30s/it]
+ | Global Training Round : 716 |
+
+ 72%|███████████████████████████▏          | 716/1000 [1:46:27<44:13,  9.34s/it]
+ | Global Training Round : 717 |
+
+ 72%|███████████████████████████▏          | 717/1000 [1:46:34<40:55,  8.68s/it]
+ | Global Training Round : 718 |
+
+ 72%|███████████████████████████▎          | 718/1000 [1:46:41<38:33,  8.20s/it]
+ | Global Training Round : 719 |
+
+ 72%|███████████████████████████▎          | 719/1000 [1:46:48<36:52,  7.88s/it]
+ | Global Training Round : 720 |
+
+
+Avg Training Stats after 720 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.93942 after 720 epochs
+
+test accuracy: 0.7738 after 720 epochs
+
+ 72%|███████████████████████████▎          | 720/1000 [1:47:04<48:00, 10.29s/it]
+ | Global Training Round : 721 |
+
+ 72%|███████████████████████████▍          | 721/1000 [1:47:11<43:25,  9.34s/it]
+ | Global Training Round : 722 |
+
+ 72%|███████████████████████████▍          | 722/1000 [1:47:18<40:07,  8.66s/it]
+ | Global Training Round : 723 |
+
+ 72%|███████████████████████████▍          | 723/1000 [1:47:25<37:44,  8.17s/it]
+ | Global Training Round : 724 |
+
+ 72%|███████████████████████████▌          | 724/1000 [1:47:32<36:01,  7.83s/it]
+ | Global Training Round : 725 |
+
+
+Avg Training Stats after 725 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.93958 after 725 epochs
+
+test accuracy: 0.7756 after 725 epochs
+
+ 72%|███████████████████████████▌          | 725/1000 [1:47:48<46:46, 10.21s/it]
+ | Global Training Round : 726 |
+
+ 73%|███████████████████████████▌          | 726/1000 [1:47:55<42:18,  9.26s/it]
+ | Global Training Round : 727 |
+
+ 73%|███████████████████████████▋          | 727/1000 [1:48:02<39:06,  8.60s/it]
+ | Global Training Round : 728 |
+
+ 73%|███████████████████████████▋          | 728/1000 [1:48:09<36:50,  8.13s/it]
+ | Global Training Round : 729 |
+
+ 73%|███████████████████████████▋          | 729/1000 [1:48:16<35:13,  7.80s/it]
+ | Global Training Round : 730 |
+
+
+Avg Training Stats after 730 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.94016 after 730 epochs
+
+test accuracy: 0.7701 after 730 epochs
+
+ 73%|███████████████████████████▋          | 730/1000 [1:48:32<45:48, 10.18s/it]
+ | Global Training Round : 731 |
+
+ 73%|███████████████████████████▊          | 731/1000 [1:48:39<41:25,  9.24s/it]
+ | Global Training Round : 732 |
+
+ 73%|███████████████████████████▊          | 732/1000 [1:48:46<38:19,  8.58s/it]
+ | Global Training Round : 733 |
+
+ 73%|███████████████████████████▊          | 733/1000 [1:48:54<37:48,  8.50s/it]
+ | Global Training Round : 734 |
+
+ 73%|███████████████████████████▉          | 734/1000 [1:49:02<36:08,  8.15s/it]
+ | Global Training Round : 735 |
+
+
+Avg Training Stats after 735 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.9413 after 735 epochs
+
+test accuracy: 0.7722 after 735 epochs
+
+ 74%|███████████████████████████▉          | 735/1000 [1:49:18<46:09, 10.45s/it]
+ | Global Training Round : 736 |
+
+ 74%|███████████████████████████▉          | 736/1000 [1:49:25<41:29,  9.43s/it]
+ | Global Training Round : 737 |
+
+ 74%|████████████████████████████          | 737/1000 [1:49:32<38:11,  8.71s/it]
+ | Global Training Round : 738 |
+
+ 74%|████████████████████████████          | 738/1000 [1:49:39<35:51,  8.21s/it]
+ | Global Training Round : 739 |
+
+ 74%|████████████████████████████          | 739/1000 [1:49:46<34:11,  7.86s/it]
+ | Global Training Round : 740 |
+
+
+Avg Training Stats after 740 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.94094 after 740 epochs
+
+test accuracy: 0.7697 after 740 epochs
+
+ 74%|████████████████████████████          | 740/1000 [1:50:02<44:19, 10.23s/it]
+ | Global Training Round : 741 |
+
+ 74%|████████████████████████████▏         | 741/1000 [1:50:09<40:02,  9.28s/it]
+ | Global Training Round : 742 |
+
+ 74%|████████████████████████████▏         | 742/1000 [1:50:16<36:59,  8.60s/it]
+ | Global Training Round : 743 |
+
+ 74%|████████████████████████████▏         | 743/1000 [1:50:23<34:48,  8.13s/it]
+ | Global Training Round : 744 |
+
+ 74%|████████████████████████████▎         | 744/1000 [1:50:30<33:15,  7.80s/it]
+ | Global Training Round : 745 |
+
+
+Avg Training Stats after 745 global rounds:
+Train Accuracy: 86.00%
+
+test accuracy: 0.94144 after 745 epochs
+
+test accuracy: 0.773 after 745 epochs
+
+ 74%|████████████████████████████▎         | 745/1000 [1:50:45<43:14, 10.18s/it]
+ | Global Training Round : 746 |
+
+ 75%|████████████████████████████▎         | 746/1000 [1:50:52<39:08,  9.25s/it]
+ | Global Training Round : 747 |
+
+ 75%|████████████████████████████▍         | 747/1000 [1:51:00<36:11,  8.58s/it]
+ | Global Training Round : 748 |
+
+ 75%|████████████████████████████▍         | 748/1000 [1:51:07<34:06,  8.12s/it]
+ | Global Training Round : 749 |
+
+ 75%|████████████████████████████▍         | 749/1000 [1:51:14<32:36,  7.80s/it]
+ | Global Training Round : 750 |
+
+
+Avg Training Stats after 750 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.93898 after 750 epochs
+
+test accuracy: 0.7709 after 750 epochs
+
+ 75%|████████████████████████████▌         | 750/1000 [1:51:29<42:22, 10.17s/it]
+ | Global Training Round : 751 |
+
+ 75%|████████████████████████████▌         | 751/1000 [1:51:36<38:18,  9.23s/it]
+ | Global Training Round : 752 |
+
+ 75%|████████████████████████████▌         | 752/1000 [1:51:43<35:24,  8.57s/it]
+ | Global Training Round : 753 |
+
+ 75%|████████████████████████████▌         | 753/1000 [1:51:50<33:22,  8.11s/it]
+ | Global Training Round : 754 |
+
+ 75%|████████████████████████████▋         | 754/1000 [1:51:57<31:54,  7.78s/it]
+ | Global Training Round : 755 |
+
+
+Avg Training Stats after 755 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.93964 after 755 epochs
+
+test accuracy: 0.7706 after 755 epochs
+
+ 76%|████████████████████████████▋         | 755/1000 [1:52:13<41:47, 10.24s/it]
+ | Global Training Round : 756 |
+
+ 76%|████████████████████████████▋         | 756/1000 [1:52:21<37:58,  9.34s/it]
+ | Global Training Round : 757 |
+
+ 76%|████████████████████████████▊         | 757/1000 [1:52:28<35:14,  8.70s/it]
+ | Global Training Round : 758 |
+
+ 76%|████████████████████████████▊         | 758/1000 [1:52:35<33:13,  8.24s/it]
+ | Global Training Round : 759 |
+
+ 76%|████████████████████████████▊         | 759/1000 [1:52:42<31:44,  7.90s/it]
+ | Global Training Round : 760 |
+
+
+Avg Training Stats after 760 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94248 after 760 epochs
+
+test accuracy: 0.7747 after 760 epochs
+
+ 76%|████████████████████████████▉         | 760/1000 [1:52:58<41:15, 10.31s/it]
+ | Global Training Round : 761 |
+
+ 76%|████████████████████████████▉         | 761/1000 [1:53:05<37:17,  9.36s/it]
+ | Global Training Round : 762 |
+
+ 76%|████████████████████████████▉         | 762/1000 [1:53:12<34:28,  8.69s/it]
+ | Global Training Round : 763 |
+
+ 76%|████████████████████████████▉         | 763/1000 [1:53:19<32:29,  8.23s/it]
+ | Global Training Round : 764 |
+
+ 76%|█████████████████████████████         | 764/1000 [1:53:27<31:04,  7.90s/it]
+ | Global Training Round : 765 |
+
+
+Avg Training Stats after 765 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.94398 after 765 epochs
+
+test accuracy: 0.7724 after 765 epochs
+
+ 76%|█████████████████████████████         | 765/1000 [1:53:43<40:26, 10.33s/it]
+ | Global Training Round : 766 |
+
+ 77%|█████████████████████████████         | 766/1000 [1:53:50<36:33,  9.37s/it]
+ | Global Training Round : 767 |
+
+ 77%|█████████████████████████████▏        | 767/1000 [1:53:57<33:51,  8.72s/it]
+ | Global Training Round : 768 |
+
+ 77%|█████████████████████████████▏        | 768/1000 [1:54:04<31:55,  8.25s/it]
+ | Global Training Round : 769 |
+
+ 77%|█████████████████████████████▏        | 769/1000 [1:54:11<30:32,  7.93s/it]
+ | Global Training Round : 770 |
+
+
+Avg Training Stats after 770 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.94246 after 770 epochs
+
+test accuracy: 0.7739 after 770 epochs
+
+ 77%|█████████████████████████████▎        | 770/1000 [1:54:27<39:38, 10.34s/it]
+ | Global Training Round : 771 |
+
+ 77%|█████████████████████████████▎        | 771/1000 [1:54:34<35:48,  9.38s/it]
+ | Global Training Round : 772 |
+
+ 77%|█████████████████████████████▎        | 772/1000 [1:54:41<33:01,  8.69s/it]
+ | Global Training Round : 773 |
+
+ 77%|█████████████████████████████▎        | 773/1000 [1:54:49<31:00,  8.19s/it]
+ | Global Training Round : 774 |
+
+ 77%|█████████████████████████████▍        | 774/1000 [1:54:56<29:33,  7.85s/it]
+ | Global Training Round : 775 |
+
+
+Avg Training Stats after 775 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94484 after 775 epochs
+
+test accuracy: 0.773 after 775 epochs
+
+ 78%|█████████████████████████████▍        | 775/1000 [1:55:11<38:18, 10.21s/it]
+ | Global Training Round : 776 |
+
+ 78%|█████████████████████████████▍        | 776/1000 [1:55:18<34:39,  9.28s/it]
+ | Global Training Round : 777 |
+
+ 78%|█████████████████████████████▌        | 777/1000 [1:55:28<34:39,  9.32s/it]
+ | Global Training Round : 778 |
+
+ 78%|█████████████████████████████▌        | 778/1000 [1:55:35<32:02,  8.66s/it]
+ | Global Training Round : 779 |
+
+ 78%|█████████████████████████████▌        | 779/1000 [1:55:42<30:05,  8.17s/it]
+ | Global Training Round : 780 |
+
+
+Avg Training Stats after 780 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.94312 after 780 epochs
+
+test accuracy: 0.769 after 780 epochs
+
+ 78%|█████████████████████████████▋        | 780/1000 [1:55:58<38:15, 10.43s/it]
+ | Global Training Round : 781 |
+
+ 78%|█████████████████████████████▋        | 781/1000 [1:56:05<34:22,  9.42s/it]
+ | Global Training Round : 782 |
+
+ 78%|█████████████████████████████▋        | 782/1000 [1:56:12<31:38,  8.71s/it]
+ | Global Training Round : 783 |
+
+ 78%|█████████████████████████████▊        | 783/1000 [1:56:19<29:40,  8.20s/it]
+ | Global Training Round : 784 |
+
+ 78%|█████████████████████████████▊        | 784/1000 [1:56:26<28:29,  7.92s/it]
+ | Global Training Round : 785 |
+
+
+Avg Training Stats after 785 global rounds:
+Train Accuracy: 86.00%
+
+test accuracy: 0.9442 after 785 epochs
+
+test accuracy: 0.7714 after 785 epochs
+
+ 78%|█████████████████████████████▊        | 785/1000 [1:56:43<37:34, 10.48s/it]
+ | Global Training Round : 786 |
+
+ 79%|█████████████████████████████▊        | 786/1000 [1:56:50<34:03,  9.55s/it]
+ | Global Training Round : 787 |
+
+ 79%|█████████████████████████████▉        | 787/1000 [1:56:57<31:33,  8.89s/it]
+ | Global Training Round : 788 |
+
+ 79%|█████████████████████████████▉        | 788/1000 [1:57:05<29:46,  8.43s/it]
+ | Global Training Round : 789 |
+
+ 79%|█████████████████████████████▉        | 789/1000 [1:57:12<28:31,  8.11s/it]
+ | Global Training Round : 790 |
+
+
+Avg Training Stats after 790 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94506 after 790 epochs
+
+test accuracy: 0.7704 after 790 epochs
+
+ 79%|██████████████████████████████        | 790/1000 [1:57:28<36:51, 10.53s/it]
+ | Global Training Round : 791 |
+
+ 79%|██████████████████████████████        | 791/1000 [1:57:36<33:23,  9.58s/it]
+ | Global Training Round : 792 |
+
+ 79%|██████████████████████████████        | 792/1000 [1:57:43<30:55,  8.92s/it]
+ | Global Training Round : 793 |
+
+ 79%|██████████████████████████████▏       | 793/1000 [1:57:50<29:10,  8.46s/it]
+ | Global Training Round : 794 |
+
+ 79%|██████████████████████████████▏       | 794/1000 [1:57:58<27:52,  8.12s/it]
+ | Global Training Round : 795 |
+
+
+Avg Training Stats after 795 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.94458 after 795 epochs
+
+test accuracy: 0.7752 after 795 epochs
+
+ 80%|██████████████████████████████▏       | 795/1000 [1:58:14<36:15, 10.61s/it]
+ | Global Training Round : 796 |
+
+ 80%|██████████████████████████████▏       | 796/1000 [1:58:21<32:40,  9.61s/it]
+ | Global Training Round : 797 |
+
+ 80%|██████████████████████████████▎       | 797/1000 [1:58:28<29:59,  8.86s/it]
+ | Global Training Round : 798 |
+
+ 80%|██████████████████████████████▎       | 798/1000 [1:58:36<28:03,  8.34s/it]
+ | Global Training Round : 799 |
+
+ 80%|██████████████████████████████▎       | 799/1000 [1:58:43<26:41,  7.97s/it]
+ | Global Training Round : 800 |
+
+
+Avg Training Stats after 800 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94452 after 800 epochs
+
+test accuracy: 0.7751 after 800 epochs
+
+ 80%|██████████████████████████████▍       | 800/1000 [1:58:59<34:29, 10.35s/it]
+ | Global Training Round : 801 |
+
+ 80%|██████████████████████████████▍       | 801/1000 [1:59:06<31:07,  9.38s/it]
+ | Global Training Round : 802 |
+
+ 80%|██████████████████████████████▍       | 802/1000 [1:59:13<28:43,  8.70s/it]
+ | Global Training Round : 803 |
+
+ 80%|██████████████████████████████▌       | 803/1000 [1:59:20<27:00,  8.23s/it]
+ | Global Training Round : 804 |
+
+ 80%|██████████████████████████████▌       | 804/1000 [1:59:27<25:48,  7.90s/it]
+ | Global Training Round : 805 |
+
+
+Avg Training Stats after 805 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.94444 after 805 epochs
+
+test accuracy: 0.7742 after 805 epochs
+
+ 80%|██████████████████████████████▌       | 805/1000 [1:59:43<33:27, 10.29s/it]
+ | Global Training Round : 806 |
+
+ 81%|██████████████████████████████▋       | 806/1000 [1:59:50<30:12,  9.34s/it]
+ | Global Training Round : 807 |
+
+ 81%|██████████████████████████████▋       | 807/1000 [1:59:57<27:54,  8.68s/it]
+ | Global Training Round : 808 |
+
+ 81%|██████████████████████████████▋       | 808/1000 [2:00:04<26:17,  8.22s/it]
+ | Global Training Round : 809 |
+
+ 81%|██████████████████████████████▋       | 809/1000 [2:00:11<25:07,  7.89s/it]
+ | Global Training Round : 810 |
+
+
+Avg Training Stats after 810 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.94298 after 810 epochs
+
+test accuracy: 0.7745 after 810 epochs
+
+ 81%|██████████████████████████████▊       | 810/1000 [2:00:27<32:37, 10.30s/it]
+ | Global Training Round : 811 |
+
+ 81%|██████████████████████████████▊       | 811/1000 [2:00:34<29:27,  9.35s/it]
+ | Global Training Round : 812 |
+
+ 81%|██████████████████████████████▊       | 812/1000 [2:00:42<27:11,  8.68s/it]
+ | Global Training Round : 813 |
+
+ 81%|██████████████████████████████▉       | 813/1000 [2:00:49<25:34,  8.21s/it]
+ | Global Training Round : 814 |
+
+ 81%|██████████████████████████████▉       | 814/1000 [2:00:56<24:25,  7.88s/it]
+ | Global Training Round : 815 |
+
+
+Avg Training Stats after 815 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.94416 after 815 epochs
+
+test accuracy: 0.7731 after 815 epochs
+
+ 82%|██████████████████████████████▉       | 815/1000 [2:01:12<31:43, 10.29s/it]
+ | Global Training Round : 816 |
+
+ 82%|███████████████████████████████       | 816/1000 [2:01:19<28:39,  9.34s/it]
+ | Global Training Round : 817 |
+
+ 82%|███████████████████████████████       | 817/1000 [2:01:26<26:23,  8.65s/it]
+ | Global Training Round : 818 |
+
+ 82%|███████████████████████████████       | 818/1000 [2:01:33<24:46,  8.17s/it]
+ | Global Training Round : 819 |
+
+ 82%|███████████████████████████████       | 819/1000 [2:01:40<23:36,  7.82s/it]
+ | Global Training Round : 820 |
+
+
+Avg Training Stats after 820 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.94376 after 820 epochs
+
+test accuracy: 0.7733 after 820 epochs
+
+ 82%|███████████████████████████████▏      | 820/1000 [2:01:56<30:33, 10.19s/it]
+ | Global Training Round : 821 |
+
+ 82%|███████████████████████████████▏      | 821/1000 [2:02:03<27:58,  9.38s/it]
+ | Global Training Round : 822 |
+
+ 82%|███████████████████████████████▏      | 822/1000 [2:02:10<25:49,  8.70s/it]
+ | Global Training Round : 823 |
+
+ 82%|███████████████████████████████▎      | 823/1000 [2:02:17<24:10,  8.20s/it]
+ | Global Training Round : 824 |
+
+ 82%|███████████████████████████████▎      | 824/1000 [2:02:24<23:01,  7.85s/it]
+ | Global Training Round : 825 |
+
+
+Avg Training Stats after 825 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.94396 after 825 epochs
+
+test accuracy: 0.7708 after 825 epochs
+
+ 82%|███████████████████████████████▎      | 825/1000 [2:02:40<29:48, 10.22s/it]
+ | Global Training Round : 826 |
+
+ 83%|███████████████████████████████▍      | 826/1000 [2:02:47<26:53,  9.28s/it]
+ | Global Training Round : 827 |
+
+ 83%|███████████████████████████████▍      | 827/1000 [2:02:54<24:49,  8.61s/it]
+ | Global Training Round : 828 |
+
+ 83%|███████████████████████████████▍      | 828/1000 [2:03:01<23:25,  8.17s/it]
+ | Global Training Round : 829 |
+
+ 83%|███████████████████████████████▌      | 829/1000 [2:03:09<22:24,  7.86s/it]
+ | Global Training Round : 830 |
+
+
+Avg Training Stats after 830 global rounds:
+Train Accuracy: 86.00%
+
+test accuracy: 0.94468 after 830 epochs
+
+test accuracy: 0.7693 after 830 epochs
+
+ 83%|███████████████████████████████▌      | 830/1000 [2:03:24<29:10, 10.30s/it]
+ | Global Training Round : 831 |
+
+ 83%|███████████████████████████████▌      | 831/1000 [2:03:32<26:20,  9.35s/it]
+ | Global Training Round : 832 |
+
+ 83%|███████████████████████████████▌      | 832/1000 [2:03:39<24:19,  8.69s/it]
+ | Global Training Round : 833 |
+
+ 83%|███████████████████████████████▋      | 833/1000 [2:03:46<22:52,  8.22s/it]
+ | Global Training Round : 834 |
+
+ 83%|███████████████████████████████▋      | 834/1000 [2:03:53<21:50,  7.89s/it]
+ | Global Training Round : 835 |
+
+
+Avg Training Stats after 835 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94516 after 835 epochs
+
+test accuracy: 0.7717 after 835 epochs
+
+ 84%|███████████████████████████████▋      | 835/1000 [2:04:09<28:22, 10.32s/it]
+ | Global Training Round : 836 |
+
+ 84%|███████████████████████████████▊      | 836/1000 [2:04:16<25:35,  9.37s/it]
+ | Global Training Round : 837 |
+
+ 84%|███████████████████████████████▊      | 837/1000 [2:04:23<23:37,  8.70s/it]
+ | Global Training Round : 838 |
+
+ 84%|███████████████████████████████▊      | 838/1000 [2:04:30<22:11,  8.22s/it]
+ | Global Training Round : 839 |
+
+ 84%|███████████████████████████████▉      | 839/1000 [2:04:38<21:11,  7.90s/it]
+ | Global Training Round : 840 |
+
+
+Avg Training Stats after 840 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.9443 after 840 epochs
+
+test accuracy: 0.7715 after 840 epochs
+
+ 84%|███████████████████████████████▉      | 840/1000 [2:04:53<27:30, 10.31s/it]
+ | Global Training Round : 841 |
+
+ 84%|███████████████████████████████▉      | 841/1000 [2:05:01<24:49,  9.37s/it]
+ | Global Training Round : 842 |
+
+ 84%|███████████████████████████████▉      | 842/1000 [2:05:08<22:55,  8.71s/it]
+ | Global Training Round : 843 |
+
+ 84%|████████████████████████████████      | 843/1000 [2:05:15<21:34,  8.25s/it]
+ | Global Training Round : 844 |
+
+ 84%|████████████████████████████████      | 844/1000 [2:05:22<20:39,  7.95s/it]
+ | Global Training Round : 845 |
+
+
+Avg Training Stats after 845 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.94534 after 845 epochs
+
+test accuracy: 0.7721 after 845 epochs
+
+ 84%|████████████████████████████████      | 845/1000 [2:05:38<26:56, 10.43s/it]
+ | Global Training Round : 846 |
+
+ 85%|████████████████████████████████▏     | 846/1000 [2:05:46<24:17,  9.46s/it]
+ | Global Training Round : 847 |
+
+ 85%|████████████████████████████████▏     | 847/1000 [2:05:53<22:23,  8.78s/it]
+ | Global Training Round : 848 |
+
+ 85%|████████████████████████████████▏     | 848/1000 [2:06:00<21:02,  8.30s/it]
+ | Global Training Round : 849 |
+
+ 85%|████████████████████████████████▎     | 849/1000 [2:06:07<20:03,  7.97s/it]
+ | Global Training Round : 850 |
+
+
+Avg Training Stats after 850 global rounds:
+Train Accuracy: 88.00%
+
+test accuracy: 0.94506 after 850 epochs
+
+test accuracy: 0.7727 after 850 epochs
+
+ 85%|████████████████████████████████▎     | 850/1000 [2:06:23<26:02, 10.41s/it]
+ | Global Training Round : 851 |
+
+ 85%|████████████████████████████████▎     | 851/1000 [2:06:31<23:27,  9.45s/it]
+ | Global Training Round : 852 |
+
+ 85%|████████████████████████████████▍     | 852/1000 [2:06:38<21:37,  8.77s/it]
+ | Global Training Round : 853 |
+
+ 85%|████████████████████████████████▍     | 853/1000 [2:06:45<20:18,  8.29s/it]
+ | Global Training Round : 854 |
+
+ 85%|████████████████████████████████▍     | 854/1000 [2:06:52<19:22,  7.96s/it]
+ | Global Training Round : 855 |
+
+
+Avg Training Stats after 855 global rounds:
+Train Accuracy: 82.00%
+
+test accuracy: 0.94724 after 855 epochs
+
+test accuracy: 0.7751 after 855 epochs
+
+ 86%|████████████████████████████████▍     | 855/1000 [2:07:08<25:07, 10.40s/it]
+ | Global Training Round : 856 |
+
+ 86%|████████████████████████████████▌     | 856/1000 [2:07:15<22:38,  9.44s/it]
+ | Global Training Round : 857 |
+
+ 86%|████████████████████████████████▌     | 857/1000 [2:07:23<20:52,  8.76s/it]
+ | Global Training Round : 858 |
+
+ 86%|████████████████████████████████▌     | 858/1000 [2:07:30<19:36,  8.29s/it]
+ | Global Training Round : 859 |
+
+ 86%|████████████████████████████████▋     | 859/1000 [2:07:37<18:41,  7.95s/it]
+ | Global Training Round : 860 |
+
+
+Avg Training Stats after 860 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94622 after 860 epochs
+
+test accuracy: 0.7718 after 860 epochs
+
+ 86%|████████████████████████████████▋     | 860/1000 [2:07:53<24:13, 10.38s/it]
+ | Global Training Round : 861 |
+
+ 86%|████████████████████████████████▋     | 861/1000 [2:08:00<21:50,  9.43s/it]
+ | Global Training Round : 862 |
+
+ 86%|████████████████████████████████▊     | 862/1000 [2:08:07<20:07,  8.75s/it]
+ | Global Training Round : 863 |
+
+ 86%|████████████████████████████████▊     | 863/1000 [2:08:14<18:54,  8.28s/it]
+ | Global Training Round : 864 |
+
+ 86%|████████████████████████████████▊     | 864/1000 [2:08:22<18:00,  7.95s/it]
+ | Global Training Round : 865 |
+
+
+Avg Training Stats after 865 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.94704 after 865 epochs
+
+test accuracy: 0.772 after 865 epochs
+
+ 86%|████████████████████████████████▊     | 865/1000 [2:08:38<23:22, 10.39s/it]
+ | Global Training Round : 866 |
+
+ 87%|████████████████████████████████▉     | 866/1000 [2:08:45<21:03,  9.43s/it]
+ | Global Training Round : 867 |
+
+ 87%|████████████████████████████████▉     | 867/1000 [2:08:52<19:22,  8.74s/it]
+ | Global Training Round : 868 |
+
+ 87%|████████████████████████████████▉     | 868/1000 [2:08:59<18:13,  8.28s/it]
+ | Global Training Round : 869 |
+
+ 87%|█████████████████████████████████     | 869/1000 [2:09:09<18:47,  8.61s/it]
+ | Global Training Round : 870 |
+
+
+Avg Training Stats after 870 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.9462 after 870 epochs
+
+test accuracy: 0.7689 after 870 epochs
+
+ 87%|█████████████████████████████████     | 870/1000 [2:09:25<23:27, 10.82s/it]
+ | Global Training Round : 871 |
+
+ 87%|█████████████████████████████████     | 871/1000 [2:09:32<20:53,  9.72s/it]
+ | Global Training Round : 872 |
+
+ 87%|█████████████████████████████████▏    | 872/1000 [2:09:39<19:04,  8.94s/it]
+ | Global Training Round : 873 |
+
+ 87%|█████████████████████████████████▏    | 873/1000 [2:09:46<17:45,  8.39s/it]
+ | Global Training Round : 874 |
+
+ 87%|█████████████████████████████████▏    | 874/1000 [2:09:53<16:49,  8.01s/it]
+ | Global Training Round : 875 |
+
+
+Avg Training Stats after 875 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.9445 after 875 epochs
+
+test accuracy: 0.7712 after 875 epochs
+
+ 88%|█████████████████████████████████▎    | 875/1000 [2:10:09<21:39, 10.40s/it]
+ | Global Training Round : 876 |
+
+ 88%|█████████████████████████████████▎    | 876/1000 [2:10:16<19:28,  9.42s/it]
+ | Global Training Round : 877 |
+
+ 88%|█████████████████████████████████▎    | 877/1000 [2:10:23<17:53,  8.73s/it]
+ | Global Training Round : 878 |
+
+ 88%|█████████████████████████████████▎    | 878/1000 [2:10:31<16:46,  8.25s/it]
+ | Global Training Round : 879 |
+
+ 88%|█████████████████████████████████▍    | 879/1000 [2:10:38<15:55,  7.89s/it]
+ | Global Training Round : 880 |
+
+
+Avg Training Stats after 880 global rounds:
+Train Accuracy: 68.00%
+
+test accuracy: 0.94576 after 880 epochs
+
+test accuracy: 0.77 after 880 epochs
+
+ 88%|█████████████████████████████████▍    | 880/1000 [2:10:53<20:27, 10.23s/it]
+ | Global Training Round : 881 |
+
+ 88%|█████████████████████████████████▍    | 881/1000 [2:11:00<18:23,  9.27s/it]
+ | Global Training Round : 882 |
+
+ 88%|█████████████████████████████████▌    | 882/1000 [2:11:07<16:54,  8.60s/it]
+ | Global Training Round : 883 |
+
+ 88%|█████████████████████████████████▌    | 883/1000 [2:11:14<15:50,  8.13s/it]
+ | Global Training Round : 884 |
+
+ 88%|█████████████████████████████████▌    | 884/1000 [2:11:21<15:04,  7.79s/it]
+ | Global Training Round : 885 |
+
+
+Avg Training Stats after 885 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.94672 after 885 epochs
+
+test accuracy: 0.7721 after 885 epochs
+
+ 88%|█████████████████████████████████▋    | 885/1000 [2:11:37<19:28, 10.16s/it]
+ | Global Training Round : 886 |
+
+ 89%|█████████████████████████████████▋    | 886/1000 [2:11:44<17:31,  9.23s/it]
+ | Global Training Round : 887 |
+
+ 89%|█████████████████████████████████▋    | 887/1000 [2:11:51<16:07,  8.56s/it]
+ | Global Training Round : 888 |
+
+ 89%|█████████████████████████████████▋    | 888/1000 [2:11:58<15:07,  8.10s/it]
+ | Global Training Round : 889 |
+
+ 89%|█████████████████████████████████▊    | 889/1000 [2:12:05<14:23,  7.78s/it]
+ | Global Training Round : 890 |
+
+
+Avg Training Stats after 890 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.94488 after 890 epochs
+
+test accuracy: 0.7721 after 890 epochs
+
+ 89%|█████████████████████████████████▊    | 890/1000 [2:12:21<18:35, 10.14s/it]
+ | Global Training Round : 891 |
+
+ 89%|█████████████████████████████████▊    | 891/1000 [2:12:28<16:44,  9.21s/it]
+ | Global Training Round : 892 |
+
+ 89%|█████████████████████████████████▉    | 892/1000 [2:12:35<15:24,  8.56s/it]
+ | Global Training Round : 893 |
+
+ 89%|█████████████████████████████████▉    | 893/1000 [2:12:42<14:26,  8.10s/it]
+ | Global Training Round : 894 |
+
+ 89%|█████████████████████████████████▉    | 894/1000 [2:12:49<13:45,  7.79s/it]
+ | Global Training Round : 895 |
+
+
+Avg Training Stats after 895 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94434 after 895 epochs
+
+test accuracy: 0.773 after 895 epochs
+
+ 90%|██████████████████████████████████    | 895/1000 [2:13:05<17:46, 10.16s/it]
+ | Global Training Round : 896 |
+
+ 90%|██████████████████████████████████    | 896/1000 [2:13:12<15:59,  9.23s/it]
+ | Global Training Round : 897 |
+
+ 90%|██████████████████████████████████    | 897/1000 [2:13:19<14:42,  8.57s/it]
+ | Global Training Round : 898 |
+
+ 90%|██████████████████████████████████    | 898/1000 [2:13:26<13:47,  8.11s/it]
+ | Global Training Round : 899 |
+
+ 90%|██████████████████████████████████▏   | 899/1000 [2:13:33<13:06,  7.79s/it]
+ | Global Training Round : 900 |
+
+
+Avg Training Stats after 900 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94656 after 900 epochs
+
+test accuracy: 0.7729 after 900 epochs
+
+ 90%|██████████████████████████████████▏   | 900/1000 [2:13:49<16:57, 10.17s/it]
+ | Global Training Round : 901 |
+
+ 90%|██████████████████████████████████▏   | 901/1000 [2:13:56<15:13,  9.23s/it]
+ | Global Training Round : 902 |
+
+ 90%|██████████████████████████████████▎   | 902/1000 [2:14:03<13:59,  8.57s/it]
+ | Global Training Round : 903 |
+
+ 90%|██████████████████████████████████▎   | 903/1000 [2:14:10<13:06,  8.11s/it]
+ | Global Training Round : 904 |
+
+ 90%|██████████████████████████████████▎   | 904/1000 [2:14:17<12:27,  7.78s/it]
+ | Global Training Round : 905 |
+
+
+Avg Training Stats after 905 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.94582 after 905 epochs
+
+test accuracy: 0.7717 after 905 epochs
+
+ 90%|██████████████████████████████████▍   | 905/1000 [2:14:32<16:05, 10.16s/it]
+ | Global Training Round : 906 |
+
+ 91%|██████████████████████████████████▍   | 906/1000 [2:14:39<14:27,  9.23s/it]
+ | Global Training Round : 907 |
+
+ 91%|██████████████████████████████████▍   | 907/1000 [2:14:46<13:16,  8.57s/it]
+ | Global Training Round : 908 |
+
+ 91%|██████████████████████████████████▌   | 908/1000 [2:14:54<12:25,  8.10s/it]
+ | Global Training Round : 909 |
+
+ 91%|██████████████████████████████████▌   | 909/1000 [2:15:01<11:48,  7.78s/it]
+ | Global Training Round : 910 |
+
+
+Avg Training Stats after 910 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.94684 after 910 epochs
+
+test accuracy: 0.7734 after 910 epochs
+
+ 91%|██████████████████████████████████▌   | 910/1000 [2:15:16<15:14, 10.16s/it]
+ | Global Training Round : 911 |
+
+ 91%|██████████████████████████████████▌   | 911/1000 [2:15:23<13:40,  9.22s/it]
+ | Global Training Round : 912 |
+
+ 91%|██████████████████████████████████▋   | 912/1000 [2:15:30<12:33,  8.56s/it]
+ | Global Training Round : 913 |
+
+ 91%|██████████████████████████████████▋   | 913/1000 [2:15:37<11:45,  8.10s/it]
+ | Global Training Round : 914 |
+
+ 91%|██████████████████████████████████▋   | 914/1000 [2:15:44<11:09,  7.78s/it]
+ | Global Training Round : 915 |
+
+
+Avg Training Stats after 915 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.94526 after 915 epochs
+
+test accuracy: 0.77 after 915 epochs
+
+ 92%|██████████████████████████████████▊   | 915/1000 [2:16:00<14:23, 10.16s/it]
+ | Global Training Round : 916 |
+
+ 92%|██████████████████████████████████▊   | 916/1000 [2:16:07<12:54,  9.22s/it]
+ | Global Training Round : 917 |
+
+ 92%|██████████████████████████████████▊   | 917/1000 [2:16:14<11:51,  8.57s/it]
+ | Global Training Round : 918 |
+
+ 92%|██████████████████████████████████▉   | 918/1000 [2:16:22<11:14,  8.23s/it]
+ | Global Training Round : 919 |
+
+ 92%|██████████████████████████████████▉   | 919/1000 [2:16:29<10:40,  7.91s/it]
+ | Global Training Round : 920 |
+
+
+Avg Training Stats after 920 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94688 after 920 epochs
+
+test accuracy: 0.7722 after 920 epochs
+
+ 92%|██████████████████████████████████▉   | 920/1000 [2:16:44<13:39, 10.25s/it]
+ | Global Training Round : 921 |
+
+ 92%|██████████████████████████████████▉   | 921/1000 [2:16:52<12:14,  9.30s/it]
+ | Global Training Round : 922 |
+
+ 92%|███████████████████████████████████   | 922/1000 [2:16:59<11:14,  8.64s/it]
+ | Global Training Round : 923 |
+
+ 92%|███████████████████████████████████   | 923/1000 [2:17:06<10:31,  8.20s/it]
+ | Global Training Round : 924 |
+
+ 92%|███████████████████████████████████   | 924/1000 [2:17:13<09:59,  7.89s/it]
+ | Global Training Round : 925 |
+
+
+Avg Training Stats after 925 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.9459 after 925 epochs
+
+test accuracy: 0.7748 after 925 epochs
+
+ 92%|███████████████████████████████████▏  | 925/1000 [2:17:29<12:52, 10.30s/it]
+ | Global Training Round : 926 |
+
+ 93%|███████████████████████████████████▏  | 926/1000 [2:17:36<11:32,  9.35s/it]
+ | Global Training Round : 927 |
+
+ 93%|███████████████████████████████████▏  | 927/1000 [2:17:43<10:33,  8.68s/it]
+ | Global Training Round : 928 |
+
+ 93%|███████████████████████████████████▎  | 928/1000 [2:17:50<09:51,  8.21s/it]
+ | Global Training Round : 929 |
+
+ 93%|███████████████████████████████████▎  | 929/1000 [2:17:57<09:19,  7.88s/it]
+ | Global Training Round : 930 |
+
+
+Avg Training Stats after 930 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.9456 after 930 epochs
+
+test accuracy: 0.7716 after 930 epochs
+
+ 93%|███████████████████████████████████▎  | 930/1000 [2:18:13<12:01, 10.30s/it]
+ | Global Training Round : 931 |
+
+ 93%|███████████████████████████████████▍  | 931/1000 [2:18:21<10:45,  9.35s/it]
+ | Global Training Round : 932 |
+
+ 93%|███████████████████████████████████▍  | 932/1000 [2:18:28<09:50,  8.68s/it]
+ | Global Training Round : 933 |
+
+ 93%|███████████████████████████████████▍  | 933/1000 [2:18:35<09:10,  8.21s/it]
+ | Global Training Round : 934 |
+
+ 93%|███████████████████████████████████▍  | 934/1000 [2:18:42<08:40,  7.88s/it]
+ | Global Training Round : 935 |
+
+
+Avg Training Stats after 935 global rounds:
+Train Accuracy: 70.00%
+
+test accuracy: 0.94692 after 935 epochs
+
+test accuracy: 0.7747 after 935 epochs
+
+ 94%|███████████████████████████████████▌  | 935/1000 [2:18:58<11:09, 10.30s/it]
+ | Global Training Round : 936 |
+
+ 94%|███████████████████████████████████▌  | 936/1000 [2:19:05<09:58,  9.36s/it]
+ | Global Training Round : 937 |
+
+ 94%|███████████████████████████████████▌  | 937/1000 [2:19:12<09:07,  8.69s/it]
+ | Global Training Round : 938 |
+
+ 94%|███████████████████████████████████▋  | 938/1000 [2:19:19<08:29,  8.22s/it]
+ | Global Training Round : 939 |
+
+ 94%|███████████████████████████████████▋  | 939/1000 [2:19:26<08:01,  7.89s/it]
+ | Global Training Round : 940 |
+
+
+Avg Training Stats after 940 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94494 after 940 epochs
+
+test accuracy: 0.7714 after 940 epochs
+
+ 94%|███████████████████████████████████▋  | 940/1000 [2:19:42<10:18, 10.31s/it]
+ | Global Training Round : 941 |
+
+ 94%|███████████████████████████████████▊  | 941/1000 [2:19:49<09:12,  9.36s/it]
+ | Global Training Round : 942 |
+
+ 94%|███████████████████████████████████▊  | 942/1000 [2:19:57<08:24,  8.69s/it]
+ | Global Training Round : 943 |
+
+ 94%|███████████████████████████████████▊  | 943/1000 [2:20:04<07:48,  8.22s/it]
+ | Global Training Round : 944 |
+
+ 94%|███████████████████████████████████▊  | 944/1000 [2:20:11<07:21,  7.89s/it]
+ | Global Training Round : 945 |
+
+
+Avg Training Stats after 945 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94644 after 945 epochs
+
+test accuracy: 0.77 after 945 epochs
+
+ 94%|███████████████████████████████████▉  | 945/1000 [2:20:27<09:26, 10.31s/it]
+ | Global Training Round : 946 |
+
+ 95%|███████████████████████████████████▉  | 946/1000 [2:20:34<08:25,  9.36s/it]
+ | Global Training Round : 947 |
+
+ 95%|███████████████████████████████████▉  | 947/1000 [2:20:41<07:40,  8.69s/it]
+ | Global Training Round : 948 |
+
+ 95%|████████████████████████████████████  | 948/1000 [2:20:48<07:07,  8.22s/it]
+ | Global Training Round : 949 |
+
+ 95%|████████████████████████████████████  | 949/1000 [2:20:55<06:42,  7.89s/it]
+ | Global Training Round : 950 |
+
+
+Avg Training Stats after 950 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.94616 after 950 epochs
+
+test accuracy: 0.7693 after 950 epochs
+
+ 95%|████████████████████████████████████  | 950/1000 [2:21:11<08:32, 10.25s/it]
+ | Global Training Round : 951 |
+
+ 95%|████████████████████████████████████▏ | 951/1000 [2:21:18<07:35,  9.30s/it]
+ | Global Training Round : 952 |
+
+ 95%|████████████████████████████████████▏ | 952/1000 [2:21:25<06:53,  8.62s/it]
+ | Global Training Round : 953 |
+
+ 95%|████████████████████████████████████▏ | 953/1000 [2:21:32<06:22,  8.15s/it]
+ | Global Training Round : 954 |
+
+ 95%|████████████████████████████████████▎ | 954/1000 [2:21:39<05:59,  7.82s/it]
+ | Global Training Round : 955 |
+
+
+Avg Training Stats after 955 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94578 after 955 epochs
+
+test accuracy: 0.7714 after 955 epochs
+
+ 96%|████████████████████████████████████▎ | 955/1000 [2:21:55<07:38, 10.20s/it]
+ | Global Training Round : 956 |
+
+ 96%|████████████████████████████████████▎ | 956/1000 [2:22:02<06:47,  9.26s/it]
+ | Global Training Round : 957 |
+
+ 96%|████████████████████████████████████▎ | 957/1000 [2:22:09<06:09,  8.59s/it]
+ | Global Training Round : 958 |
+
+ 96%|████████████████████████████████████▍ | 958/1000 [2:22:16<05:41,  8.13s/it]
+ | Global Training Round : 959 |
+
+ 96%|████████████████████████████████████▍ | 959/1000 [2:22:23<05:19,  7.80s/it]
+ | Global Training Round : 960 |
+
+
+Avg Training Stats after 960 global rounds:
+Train Accuracy: 80.00%
+
+test accuracy: 0.9456 after 960 epochs
+
+test accuracy: 0.7727 after 960 epochs
+
+ 96%|████████████████████████████████████▍ | 960/1000 [2:22:39<06:47, 10.19s/it]
+ | Global Training Round : 961 |
+
+ 96%|████████████████████████████████████▌ | 961/1000 [2:22:46<06:00,  9.25s/it]
+ | Global Training Round : 962 |
+
+ 96%|████████████████████████████████████▌ | 962/1000 [2:22:53<05:26,  8.59s/it]
+ | Global Training Round : 963 |
+
+ 96%|████████████████████████████████████▌ | 963/1000 [2:23:00<05:00,  8.13s/it]
+ | Global Training Round : 964 |
+
+ 96%|████████████████████████████████████▋ | 964/1000 [2:23:07<04:41,  7.82s/it]
+ | Global Training Round : 965 |
+
+
+Avg Training Stats after 965 global rounds:
+Train Accuracy: 76.00%
+
+test accuracy: 0.94554 after 965 epochs
+
+test accuracy: 0.7728 after 965 epochs
+
+ 96%|████████████████████████████████████▋ | 965/1000 [2:23:23<05:57, 10.22s/it]
+ | Global Training Round : 966 |
+
+ 97%|████████████████████████████████████▋ | 966/1000 [2:23:30<05:15,  9.27s/it]
+ | Global Training Round : 967 |
+
+ 97%|████████████████████████████████████▋ | 967/1000 [2:23:37<04:43,  8.60s/it]
+ | Global Training Round : 968 |
+
+ 97%|████████████████████████████████████▊ | 968/1000 [2:23:44<04:20,  8.13s/it]
+ | Global Training Round : 969 |
+
+ 97%|████████████████████████████████████▊ | 969/1000 [2:23:51<04:02,  7.81s/it]
+ | Global Training Round : 970 |
+
+
+Avg Training Stats after 970 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94624 after 970 epochs
+
+test accuracy: 0.772 after 970 epochs
+
+ 97%|████████████████████████████████████▊ | 970/1000 [2:24:07<05:05, 10.19s/it]
+ | Global Training Round : 971 |
+
+ 97%|████████████████████████████████████▉ | 971/1000 [2:24:14<04:28,  9.25s/it]
+ | Global Training Round : 972 |
+
+ 97%|████████████████████████████████████▉ | 972/1000 [2:24:21<04:00,  8.59s/it]
+ | Global Training Round : 973 |
+
+ 97%|████████████████████████████████████▉ | 973/1000 [2:24:28<03:39,  8.13s/it]
+ | Global Training Round : 974 |
+
+ 97%|█████████████████████████████████████ | 974/1000 [2:24:35<03:23,  7.81s/it]
+ | Global Training Round : 975 |
+
+
+Avg Training Stats after 975 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94674 after 975 epochs
+
+test accuracy: 0.7686 after 975 epochs
+
+ 98%|█████████████████████████████████████ | 975/1000 [2:24:51<04:15, 10.22s/it]
+ | Global Training Round : 976 |
+
+ 98%|█████████████████████████████████████ | 976/1000 [2:24:58<03:42,  9.27s/it]
+ | Global Training Round : 977 |
+
+ 98%|█████████████████████████████████████▏| 977/1000 [2:25:05<03:18,  8.61s/it]
+ | Global Training Round : 978 |
+
+ 98%|█████████████████████████████████████▏| 978/1000 [2:25:12<02:59,  8.15s/it]
+ | Global Training Round : 979 |
+
+ 98%|█████████████████████████████████████▏| 979/1000 [2:25:19<02:44,  7.84s/it]
+ | Global Training Round : 980 |
+
+
+Avg Training Stats after 980 global rounds:
+Train Accuracy: 90.00%
+
+test accuracy: 0.94664 after 980 epochs
+
+test accuracy: 0.7722 after 980 epochs
+
+ 98%|█████████████████████████████████████▏| 980/1000 [2:25:35<03:24, 10.22s/it]
+ | Global Training Round : 981 |
+
+ 98%|█████████████████████████████████████▎| 981/1000 [2:25:42<02:56,  9.28s/it]
+ | Global Training Round : 982 |
+
+ 98%|█████████████████████████████████████▎| 982/1000 [2:25:49<02:34,  8.61s/it]
+ | Global Training Round : 983 |
+
+ 98%|█████████████████████████████████████▎| 983/1000 [2:25:56<02:18,  8.14s/it]
+ | Global Training Round : 984 |
+
+ 98%|█████████████████████████████████████▍| 984/1000 [2:26:03<02:04,  7.81s/it]
+ | Global Training Round : 985 |
+
+
+Avg Training Stats after 985 global rounds:
+Train Accuracy: 78.00%
+
+test accuracy: 0.94562 after 985 epochs
+
+test accuracy: 0.7715 after 985 epochs
+
+ 98%|█████████████████████████████████████▍| 985/1000 [2:26:19<02:32, 10.19s/it]
+ | Global Training Round : 986 |
+
+ 99%|█████████████████████████████████████▍| 986/1000 [2:26:26<02:09,  9.25s/it]
+ | Global Training Round : 987 |
+
+ 99%|█████████████████████████████████████▌| 987/1000 [2:26:33<01:51,  8.58s/it]
+ | Global Training Round : 988 |
+
+ 99%|█████████████████████████████████████▌| 988/1000 [2:26:40<01:37,  8.12s/it]
+ | Global Training Round : 989 |
+
+ 99%|█████████████████████████████████████▌| 989/1000 [2:26:47<01:25,  7.80s/it]
+ | Global Training Round : 990 |
+
+
+Avg Training Stats after 990 global rounds:
+Train Accuracy: 84.00%
+
+test accuracy: 0.94806 after 990 epochs
+
+test accuracy: 0.7755 after 990 epochs
+
+ 99%|█████████████████████████████████████▌| 990/1000 [2:27:03<01:41, 10.18s/it]
+ | Global Training Round : 991 |
+
+ 99%|█████████████████████████████████████▋| 991/1000 [2:27:10<01:23,  9.24s/it]
+ | Global Training Round : 992 |
+
+ 99%|█████████████████████████████████████▋| 992/1000 [2:27:17<01:08,  8.57s/it]
+ | Global Training Round : 993 |
+
+ 99%|█████████████████████████████████████▋| 993/1000 [2:27:24<00:56,  8.11s/it]
+ | Global Training Round : 994 |
+
+ 99%|█████████████████████████████████████▊| 994/1000 [2:27:31<00:46,  7.79s/it]
+ | Global Training Round : 995 |
+
+
+Avg Training Stats after 995 global rounds:
+Train Accuracy: 72.00%
+
+test accuracy: 0.9474 after 995 epochs
+
+test accuracy: 0.7731 after 995 epochs
+
+100%|█████████████████████████████████████▊| 995/1000 [2:27:47<00:50, 10.18s/it]
+ | Global Training Round : 996 |
+
+100%|█████████████████████████████████████▊| 996/1000 [2:27:54<00:36,  9.25s/it]
+ | Global Training Round : 997 |
+
+100%|█████████████████████████████████████▉| 997/1000 [2:28:01<00:25,  8.58s/it]
+ | Global Training Round : 998 |
+
+100%|█████████████████████████████████████▉| 998/1000 [2:28:08<00:16,  8.12s/it]
+ | Global Training Round : 999 |
+
+100%|█████████████████████████████████████▉| 999/1000 [2:28:15<00:07,  7.79s/it]
+ | Global Training Round : 1000 |
+
+
+Avg Training Stats after 1000 global rounds:
+Train Accuracy: 74.00%
+
+test accuracy: 0.94508 after 1000 epochs
+
+test accuracy: 0.7743 after 1000 epochs
+
+100%|█████████████████████████████████████| 1000/1000 [2:28:31<00:00,  8.91s/it]
+
+ Results after 1000 global rounds of training:
+|---- Avg Train Accuracy: 74.00%
+|---- Test Accuracy: 77.43%
+file_name: ../save/objects/cifar_cnn_1000_C[0.1]_iid[1]_E[5]_B[50].pkl
+
+ Total Run Time: 8929.0142
+Start Plot
+
+Process finished with exit code 0

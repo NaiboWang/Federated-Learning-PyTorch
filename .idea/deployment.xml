@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="naibo@172.27.143.140:22" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Data Science">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="naibo@172.27.143.140:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="naibo@idsd-0.d2.comp.nus.edu.sg:5001 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="naibo@idsd-0.d2.comp.nus.edu.sg:5032">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

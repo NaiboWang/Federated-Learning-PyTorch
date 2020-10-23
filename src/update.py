@@ -31,7 +31,7 @@ class LocalUpdate(object):
             dataset, list(idxs))
         self.device = 'cuda' if args.gpu else 'cpu'
         # Default criterion set to NLL loss function
-        self.criterion = nn.NLLLoss().to(self.device)
+        self.criterion = nn.CrossEntropyLoss().to(self.device)
 
     def train_val_test(self, dataset, idxs):
         """
@@ -44,7 +44,7 @@ class LocalUpdate(object):
         idxs_test = idxs[int(0.9*len(idxs)):]
 
         trainloader = DataLoader(DatasetSplit(dataset, idxs_train),
-                                 batch_size=self.args.local_bs, shuffle=True)
+                                 batch_size=self.args.local_bs, shuffle=True) # shuffle随机打乱
         validloader = DataLoader(DatasetSplit(dataset, idxs_val),
                                  batch_size=int(len(idxs_val)/10), shuffle=False)
         testloader = DataLoader(DatasetSplit(dataset, idxs_test),
@@ -63,8 +63,9 @@ class LocalUpdate(object):
         elif self.args.optimizer == 'adam':
             optimizer = torch.optim.Adam(model.parameters(), lr=self.args.lr,
                                          weight_decay=1e-4)
-
+        # 每个local_model都在本地训练local_ep轮之后再进行模型融合
         for iter in range(self.args.local_ep):
+            # print("iter:%d/%d"%(iter+1,self.args.local_ep))
             batch_loss = []
             for batch_idx, (images, labels) in enumerate(self.trainloader):
                 images, labels = images.to(self.device), labels.to(self.device)
@@ -75,16 +76,16 @@ class LocalUpdate(object):
                 loss.backward()
                 optimizer.step()
 
-                if self.args.verbose and (batch_idx % 10 == 0):
-                    print('| Global Round : {} | Local Epoch : {} | [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
-                        global_round, iter, batch_idx * len(images),
-                        len(self.trainloader.dataset),
-                        100. * batch_idx / len(self.trainloader), loss.item()))
+                # if self.args.verbose and (batch_idx % 10 == 0):
+                    # print('| Global Round : {} | Local Epoch : {} | [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
+                    #     global_round, iter, batch_idx * len(images),
+                    #     len(self.trainloader.dataset),
+                    #     100. * batch_idx / len(self.trainloader), loss.item()))
                 self.logger.add_scalar('loss', loss.item())
                 batch_loss.append(loss.item())
             epoch_loss.append(sum(batch_loss)/len(batch_loss))
-
-        return model.state_dict(), sum(epoch_loss) / len(epoch_loss)
+            # 这里的loss取的都是均值
+        return model.state_dict(), sum(epoch_loss) / len(epoch_loss),model
 
     def inference(self, model):
         """ Returns the inference accuracy and loss.
@@ -114,7 +115,8 @@ class LocalUpdate(object):
 def test_inference(args, model, test_dataset):
     """ Returns the test accuracy and loss.
     """
-
+    # 在运行推理之前，务必调用model.eval() 去设置 dropout 和 batch normalization 层为评
+    # 估模式。如果不这么做，可能导致模型推断结果不一致。
     model.eval()
     loss, total, correct = 0.0, 0.0, 0.0
 

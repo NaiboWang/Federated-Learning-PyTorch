@@ -19,7 +19,7 @@ def get_dataset(args):
         data_dir = '../data/cifar/'
         apply_transform = transforms.Compose(
             [transforms.ToTensor(),
-             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+             transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))])
 
         train_dataset = datasets.CIFAR10(data_dir, train=True, download=True,
                                        transform=apply_transform)
@@ -34,10 +34,10 @@ def get_dataset(args):
         else:
             # Sample Non-IID user data from Mnist
             if args.unequal:
-                # Chose uneuqal splits for every user
+                # Choose unequal splits for every user
                 raise NotImplementedError()
             else:
-                # Chose euqal splits for every user
+                # Choose equal splits for every user
                 user_groups = cifar_noniid(train_dataset, args.num_users)
 
     elif args.dataset == 'mnist' or 'fmnist':

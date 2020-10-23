@@ -12,12 +12,12 @@ from torch.utils.data import DataLoader
 from utils import get_dataset
 from options import args_parser
 from update import test_inference
-from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar
-
+from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar, modelC, CNNCifaro
 
 if __name__ == '__main__':
     args = args_parser()
     if args.gpu:
+        print("args.gpu", args.gpu)
         torch.cuda.set_device(int(args.gpu))
         print("using GPU")
     device = 'cuda' if args.gpu else 'cpu'
@@ -34,19 +34,22 @@ if __name__ == '__main__':
             global_model = CNNFashion_Mnist(args=args)
         elif args.dataset == 'cifar':
             global_model = CNNCifar(args=args)
+            # global_model = modelC(args=args)
     elif args.model == 'mlp':
-        # Multi-layer preceptron
-        img_size = train_dataset[0][0].shape
+        # Multi-layer perceptron
+        img_size = train_dataset[0][0].shape # [1,28,28] if mnist
         len_in = 1
-        for x in img_size:
+        for x in img_size: # x will be 1,28,28 if mnist
             len_in *= x
-            global_model = MLP(dim_in=len_in, dim_hidden=64,
-                               dim_out=args.num_classes)
+        global_model = MLP(dim_in=len_in, dim_hidden=64,
+                           dim_out=args.num_classes)
     else:
         exit('Error: unrecognized model')
 
     # Set the model to train and send it to device.
+    global_model = torch.nn.DataParallel(global_model)
     global_model.to(device)
+    # Set model to training mode
     global_model.train()
     print(global_model)
 
@@ -58,9 +61,10 @@ if __name__ == '__main__':
     elif args.optimizer == 'adam':
         optimizer = torch.optim.Adam(global_model.parameters(), lr=args.lr,
                                      weight_decay=1e-4)
+        print("Using Adam")
 
     trainloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
-    criterion = torch.nn.NLLLoss().to(device)
+    criterion = torch.nn.CrossEntropyLoss().to(device)
     epoch_loss = []
 
     for epoch in tqdm(range(args.epochs)):
@@ -84,16 +88,22 @@ if __name__ == '__main__':
         loss_avg = sum(batch_loss)/len(batch_loss)
         print('\nTrain loss:', loss_avg)
         epoch_loss.append(loss_avg)
+        # Train Accuracy
+        train_acc, train_loss = test_inference(args, global_model, train_dataset)
+        print('Training on', len(train_dataset), 'samples')
+        print("Training Accuracy: {:.2f}% for epoch {}".format(100 * train_acc,epoch))
+        # testing
+        test_acc, test_loss = test_inference(args, global_model, test_dataset)
+        print('Test on', len(test_dataset), 'samples')
+        print("Test Accuracy: {:.2f}% for epoch {}".format(100 * test_acc,epoch))
 
     # Plot loss
     plt.figure()
     plt.plot(range(len(epoch_loss)), epoch_loss)
     plt.xlabel('epochs')
     plt.ylabel('Train loss')
+    plt.show()
     plt.savefig('../save/nn_{}_{}_{}.png'.format(args.dataset, args.model,
                                                  args.epochs))
 
-    # testing
-    test_acc, test_loss = test_inference(args, global_model, test_dataset)
-    print('Test on', len(test_dataset), 'samples')
-    print("Test Accuracy: {:.2f}%".format(100*test_acc))
+
