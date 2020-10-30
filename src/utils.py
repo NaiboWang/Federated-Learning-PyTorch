@@ -4,6 +4,7 @@
 
 import copy
 import torch
+import numpy as np
 from torchvision import datasets, transforms
 from sampling import mnist_iid, mnist_noniid, mnist_noniid_unequal
 from sampling import cifar_iid, cifar_noniid
@@ -22,10 +23,10 @@ def get_dataset(args):
              transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))])
 
         train_dataset = datasets.CIFAR10(data_dir, train=True, download=True,
-                                       transform=apply_transform)
+                                         transform=apply_transform)
 
         test_dataset = datasets.CIFAR10(data_dir, train=False, download=True,
-                                      transform=apply_transform)
+                                        transform=apply_transform)
 
         # sample training data amongst users
         if args.iid:
@@ -72,16 +73,31 @@ def get_dataset(args):
     return train_dataset, test_dataset, user_groups
 
 
-def average_weights(w):
+def average_weights(w, args):
     """
     Returns the average of the weights.
     """
     w_avg = copy.deepcopy(w[0])
     for key in w_avg.keys():
         for i in range(1, len(w)):
-            w_avg[key] += w[i][key]
+            w_avg[key] = additive_secret_sharing(w_avg[key], w[i][key], args)
         w_avg[key] = torch.div(w_avg[key], len(w))
     return w_avg
+
+
+def additive_secret_sharing(parameterA, parameterB, args):
+    parameterA_array = parameterA.cpu().numpy()
+    parameterB_array = parameterB.cpu().numpy()
+    shape = parameterA_array.shape
+    parameterA_array_flatten = parameterA_array.flatten()
+    parameterB_array_flatten = parameterB_array.flatten()
+    sum_result = parameterA_array_flatten + parameterB_array_flatten  # 修改成其他的
+    sum_result = np.reshape(sum_result,shape)
+    if args.gpu == -1:
+        sum_result = torch.from_numpy(sum_result).cpu()
+    else:
+        sum_result = torch.from_numpy(sum_result).cuda()
+    return sum_result
 
 
 def exp_details(args):

@@ -47,7 +47,8 @@ if __name__ == '__main__':
         exit('Error: unrecognized model')
 
     # Set the model to train and send it to device.
-    global_model = torch.nn.DataParallel(global_model)
+    if args.parallel:
+        global_model = torch.nn.DataParallel(global_model)
     global_model.to(device)
     # Set model to training mode
     global_model.train()

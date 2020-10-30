@@ -33,7 +33,6 @@ if __name__ == '__main__':
         print("args.gpu",args.gpu)
         torch.cuda.set_device(int(args.gpu))
     device = 'cuda' if args.gpu else 'cpu'
-    print("test")
     # load dataset and user groups
     train_dataset, test_dataset, user_groups = get_dataset(args)
     # user_groups: dict, 100个user，key是0-100，value为一个数组，组内有600个索引值（对于mnist来说），索引值对应mnist数组中的数据，根据non-iid或iid的不同来得到不同的索引
@@ -60,7 +59,8 @@ if __name__ == '__main__':
         exit('Error: unrecognized model')
 
     # Set the model to train and send it to device.
-    global_model = torch.nn.DataParallel(global_model)
+    if args.parallel:
+        global_model = torch.nn.DataParallel(global_model)
     global_model.to(device)
     # Set model to training mode
     global_model.train()
@@ -94,7 +94,7 @@ if __name__ == '__main__':
             local_losses.append(copy.deepcopy(loss))
 
         # update global weights，这里的global_model只是取被选择的local_model的平均值
-        global_weights = average_weights(local_weights)
+        global_weights = average_weights(local_weights,args)
 
         # update global weights
         global_model.load_state_dict(global_weights)

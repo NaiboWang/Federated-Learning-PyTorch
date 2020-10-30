@@ -2,19 +2,12 @@
 # -*- coding: utf-8 -*-
 # Python version: 3.6
 
-"""
-有序的从1到num_users训练model，第i个model初始化为第i-1个model训练后的模型
-
-与所有用户把数据交给center分批训练的唯一区别就在于互相看不到对方的数据
-
-"""
 
 import os
 import copy
 import time
 import pickle
 import numpy as np
-import torch.nn as nn
 from tqdm import tqdm
 
 import torch
@@ -23,10 +16,11 @@ from tensorboardX import SummaryWriter
 from options import args_parser
 from update import LocalUpdate, test_inference
 from models import MLP, CNNMnist, CNNFashion_Mnist, CNNCifar, modelC, CNNCifaro, ModerateCNN
-from utils import get_dataset, average_weights, exp_details
+from utils import get_dataset, average_weights, exp_details, additive_secret_sharing
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
-
+"""
+可以用个动图来表示训练过程
+"""
 if __name__ == '__main__':
     start_time = time.time()
 
@@ -41,6 +35,7 @@ if __name__ == '__main__':
         print("args.gpu",args.gpu)
         torch.cuda.set_device(int(args.gpu))
     device = 'cuda' if args.gpu else 'cpu'
+
     # load dataset and user groups
     train_dataset, test_dataset, user_groups = get_dataset(args)
     # user_groups: dict, 100个user，key是0-100，value为一个数组，组内有600个索引值（对于mnist来说），索引值对应mnist数组中的数据，根据non-iid或iid的不同来得到不同的索引
@@ -66,11 +61,10 @@ if __name__ == '__main__':
     else:
         exit('Error: unrecognized model')
 
+    # Set the model to train and send it to device.
     if args.parallel:
         global_model = torch.nn.DataParallel(global_model)
-    global_model = global_model.to(device)
-    # Set the model to train and send it to device.
-    # global_model.to(device)
+    global_model.to(device)
     # Set model to training mode
     global_model.train()
     print(global_model)
@@ -83,41 +77,67 @@ if __name__ == '__main__':
     train_loss, train_accuracy = [], []
     val_acc_list, net_list = [], []
     cv_loss, cv_acc = [], []
-    print_every = 5
+    print_every = 1
     val_loss_pre, counter = 0, 0
+    version_matrix = np.zeros((args.num_users, args.num_users)) # 模型版本矩阵
+    models = {} # 用于存放各个client的模型
+    for i in range(args.num_users):
+        models[i] = copy.deepcopy(global_model)
+        models[i].train()
+    # print(models)
     # tqdm进度条功能 progress bar
     for epoch in tqdm(range(args.epochs)):
+        local_weights, local_losses = [], []
         print(f'\n | Global Training Round : {epoch+1} |\n')
 
-        global_model.train() # 设置成训练模式
-        idxs_users = range(args.num_users)
+        global_model.train()
 
-        for idx in idxs_users:
-            print("Training at user %d/%d." % (idx+1,args.num_users))
+        for r in range(args.num_users):
+            idx_user = np.random.choice(range(args.num_users), 1, replace=False)[0]
+            print("User selected:",idx_user)
+            v_old = np.reshape(version_matrix[idx_user, :], -1)
+            v_new = np.zeros(args.num_users)
+            for i in range(args.num_users):
+                v_new[i] = version_matrix[i, i]
+            # 模型聚合
+            w_avg = copy.deepcopy(models[idx_user].state_dict())
+            n_participants = 1 # 记录参与的模型总数
+            for i in range(args.num_users):
+                if v_new[i] > v_old[i]:
+                    # print("Averaging Model:",i)
+                    version_matrix[idx_user, i] = v_new[i]
+                    n_participants = n_participants + 1 # 更新长度
+                    w_model_to_merge = copy.deepcopy(models[i].state_dict())
+                    for key in w_avg.keys():
+                        w_avg[key] = additive_secret_sharing(w_avg[key], w_model_to_merge[key],args)
+            for key in w_avg.keys():
+                w_avg[key] = torch.true_divide(w_avg[key], n_participants)
+            print("Select user:",idx_user,", total number of participants:",n_participants,", process:",r+1,"/",args.num_users)
+            global_model.load_state_dict(w_avg)
+            # 训练模型
             local_model = LocalUpdate(args=args, dataset=train_dataset,
-                                      idxs=user_groups[idx], logger=logger)
-            w, loss, global_model = local_model.update_weights(
-                model=global_model, global_round=epoch)
-
-            # update global weights将下个模型要用的模型改成上一个模型的初始值
-            # global_model.load_state_dict(w)
-
-        # loss_avg = sum(local_losses) / len(local_losses)
-        # train_loss.append(loss_avg)
-
-        # Calculate avg training accuracy over all users at every epoch
-        list_acc, list_loss = [], []
-        global_model.eval()
-        # for c in range(args.num_users):
-        #     local_model = LocalUpdate(args=args, dataset=train_dataset,
-        #                               idxs=user_groups[idx], logger=logger) # 只是返回了local_model的类
-        #     acc, loss = local_model.inference(model=global_model) # 这一步只是用了local_model的数据集，即用global_model在training dataset上做测试
-        #     list_acc.append(acc)
-        #     list_loss.append(loss)
-        # train_accuracy.append(sum(list_acc)/len(list_acc))
+                                      idxs=user_groups[idx_user], logger=logger)
+            w, loss, t_model = local_model.update_weights(model=copy.deepcopy(global_model), global_round=epoch)
+            print("loss:",loss)
+            # 更新版本
+            version_matrix[idx_user, idx_user] = version_matrix[idx_user, idx_user] + 1
+            models[idx_user].load_state_dict(w)
+            w, loss, t_model = local_model.update_weights(
+                model=copy.deepcopy(models[idx_user]), global_round=epoch)
+            print("losses:", loss)
 
         # print global training loss after every 'i' rounds
         if (epoch+1) % print_every == 0:
+            for i in range(args.num_users):
+                v_new[i] = version_matrix[i, i]
+            print("versions:",v_new)
+            local_weights = []
+            for i in range(args.num_users):
+                local_weights.append(models[i].state_dict())
+            # update global weights，这里的global_model只是取被选择的local_model的平均值
+            global_weights = average_weights(local_weights,args)
+            # update global weights
+            global_model.load_state_dict(global_weights)
             print(f' \nAvg Training Stats after {epoch+1} global rounds:')
             # print(f'Training Loss : {np.mean(np.array(train_loss))}')
             # print('Train Accuracy: {:.2f}% \n'.format(100*train_accuracy[-1]))
@@ -125,6 +145,13 @@ if __name__ == '__main__':
             print("test accuracy for training set: {} after {} epochs\n".format(test_acc, epoch + 1))
             test_acc, test_loss = test_inference(args, global_model, test_dataset)
             print("test accuracy for test set: {} after {} epochs\n".format(test_acc, epoch + 1))
+
+    for i in range(args.num_users):
+        local_weights.append(models[i].state_dict())
+    # update global weights，这里的global_model只是取被选择的local_model的平均值
+    global_weights = average_weights(local_weights,args)
+    # update global weights
+    global_model.load_state_dict(global_weights)
 
     # Test inference after completion of training
     test_acc, test_loss = test_inference(args, global_model, test_dataset)

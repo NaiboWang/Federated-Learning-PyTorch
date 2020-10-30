@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="naibo@172.27.143.140:22" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="zhangsq@sigx1.d2.comp.nus.edu.sg:22" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="Data Science">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="naibo@172.27.143.140:22">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
@@ -27,6 +20,20 @@
         <serverdata>
           <mappings>
             <mapping deploy="/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="zhangsq@sigx1.d2.comp.nus.edu.sg">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="zhangsq@sigx1.d2.comp.nus.edu.sg:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/zhangsq/Federated-Learning-PyTorch" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

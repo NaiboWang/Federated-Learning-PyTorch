@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="313bce19-c117-4d90-a6d1-f165522146e9" name="Data Science">
-        <fileTransfer rootFolder="/home/naibo/Federated-Learning-PyTorch" accessType="SFTP" host="172.27.143.140" port="22" sshConfigId="8232a16f-84d3-408f-808a-f40437cff439" sshConfig="naibo@172.27.143.140:22 password">
+        <fileTransfer rootFolder="/home/naibo/Federated-Learning-PyTorch" accessType="SFTP" sshConfigId="8232a16f-84d3-408f-808a-f40437cff439" sshConfig="naibo@172.27.143.140:22 password">
           <advancedOptions>
             <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
